@@ -1,0 +1,9 @@
+<!-- view_reminders.html -->
+<h2>Your Reminders</h2>
+{% load django_bootstrap5%}
+{% load static %}
+<ul>
+    {% for reminder in reminders %}
+    <li>{{ reminder.message }} at {{ reminder.time }}</li>
+    {% endfor %}
+</ul>

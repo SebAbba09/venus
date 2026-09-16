@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    {% load static %}
+    {% load django_bootstrap5 %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter un Événement</title>
+    <link href="{% static 'w3.css' %}" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: url('/static/image2.jpeg') no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        .wrapper {
+            width: 500px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            color: #fff;
+        }
+        .wrapper h1 {
+            font-size: 30px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .input-box {
+            position: relative;
+            margin-bottom: 15px;
+        }
+        .input-box input, .input-box textarea, .input-box select {
+            width: 100%;
+            height: 50px;
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            font-size: 16px;
+            color: #fff;
+            padding: 0 15px;
+        }
+        .input-box textarea {
+            height: 100px;
+            padding-top: 10px;
+        }
+        .input-box input::placeholder, .input-box textarea::placeholder {
+            color: #fff;
+        }
+        .input-box i {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 20px;
+            color: #fff;
+        }
+        .btn {
+            width: 100%;
+            height: 45px;
+            background: #fff;
+            border: none;
+            border-radius: 40px;
+            cursor: pointer;
+            font-size: 16px;
+            color: black;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Ajouter un Événement</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="input-box">
+                {{ form.title.label_tag }}
+                {{ form.title }}
+            </div>
+            <div class="input-box">
+                {{ form.date.label_tag }}
+                {{ form.date }}
+            </div>
+            <div class="input-box">
+                {{ form.description.label_tag }}
+                {{ form.description }}
+            </div>
+
+             <button type="submit" class="btn"><a href="{% url 'event_list' %}">Enregistrer</a></button>
+        </form>
+    </div>
+</body>
+</html>

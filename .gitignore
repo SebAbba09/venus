@@ -1,0 +1,62 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Environnements virtuels à la racine du projet
+/venv/
+/.venv/
+/env/
+/venus/
+# Autre environnement local éventuel
+/venus_chat/
+# Django
+*.sqlite3
+db.sqlite3
+media/
+staticfiles/
+
+# Secrets et certificats
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+
+# Modèles IA lourds
+*.pt
+*.pth
+*.bin
+*.pkl
+*.safetensors
+*.onnx
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# IDE
+.idea/
+.vscode/
+
+# Fichiers temporaires
+*.log
+*.tmp
+*.temp
+
+# Système
+Thumbs.db
+.DS_Store
+
+# Fichiers de diagnostic local
+git_status.txt
+how --stat --oneline a0940f49
+tatus --short \357\201\274 Select-Object -First 50
+
+# Archives / fichiers volumineux locaux
+
+# Archives volumineuses
+*.zip

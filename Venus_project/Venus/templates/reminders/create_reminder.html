@@ -1,0 +1,7 @@
+<!-- create_reminder.html -->
+<form method="post">
+    {% csrf_token %}
+    Message: <input type="text" name="message"><br>
+    Time: <input type="datetime-local" name="time"><br>
+    <input type="submit" value="Create Reminder">
+</form>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    {% load django_bootstrap5 %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merci pour votre inscription</title>
+    <link href="{% static 'w3.css' %}" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: url('/static/image2.jpeg') no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        .wrapper {
+            width: 500px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            color: #fff;
+            text-align: center;
+        }
+        .wrapper h1 {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+        .btn {
+            width: 40%;
+            height: 45px;
+            background: #fff;
+            border: none;
+            outline: none;
+            border-radius: 40px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            font-size: 16px;
+            color: black;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Merci pour votre inscription !</h1>
+        <br>
+        <br>
+        <p>Votre compte a été créé avec succès.</p>
+        <br>
+        <br>
+        <button type="submit" class="btn"><a href="{% url 'connexion' %}">Retour a la connexion</a></button>
+    </div>
+</body>
+</html>

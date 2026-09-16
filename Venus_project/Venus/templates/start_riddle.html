@@ -1,0 +1,55 @@
+<!-- start_riddle.html -->
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Jeu d'Énigmes</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   {% load django_bootstrap5%}
+    {% load static %}
+</head>
+<body>
+    <h1>Énigme</h1>
+    {% if riddle %}
+
+        <p>{{ riddle.question }}</p>
+        <form id="riddle_form">
+            <input type="hidden" name="riddle_id" value="{{ riddle.id }}">
+            <input type="text" name="answer" placeholder="Votre réponse">
+            <button type="submit">Soumettre</button>
+        </form>
+        <div id="result"></div>
+    {% else %}
+        <p>Aucune énigme disponible.</p>
+    {% endif %}
+
+    <script>
+        $(document).ready(function() {
+            $('#riddle_form').submit(function(event) {
+                event.preventDefault();
+                $.ajax({
+                    url: '{% url "check_riddle_answer" %}',
+                    type: 'POST',
+                    headers: {
+                        'X-CSRFToken': '{{ csrf_token }}'
+                    },
+                    data: $(this).serialize(),
+                    success: function(response) {
+                        if (response.result === 'correct') {
+                            $('#result').html('<p>Bonne réponse!</p>');
+                        } else if (response.result === 'incorrect') {
+                            $('#result').html('<p>Mauvaise réponse! La bonne réponse était: ' + response.correct_answer + '</p>');
+                        } else {
+                            $('#result').html('<p>Erreur.</p>');
+                        }
+                    },
+                    error: function(xhr, errmsg, err) {
+                        console.log(xhr.status + ": " + xhr.responseText);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

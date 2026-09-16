@@ -1,0 +1,21 @@
+<!-- templates/reminders/reminder_list.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reminders</title>
+</head>
+<body>
+    <h1>Reminders</h1>
+    <a href="{% url 'reminder_create' %}">Add Reminder</a>
+    <ul>
+        {% for reminder in reminders %}
+            <li>
+                {{ reminder.message }} ({{ reminder.remind_at }})
+                <a href="{% url 'reminder_update' reminder.pk %}">Edit</a>
+                <a href="{% url 'reminder_delete' reminder.pk %}" onclick="return confirm('Are you sure?');">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

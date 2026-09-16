@@ -1,0 +1,65 @@
+{
+  "add_prefix_space": true,
+  "bos_token": {
+    "__type": "AddedToken",
+    "content": "<s>",
+    "lstrip": false,
+    "normalized": true,
+    "rstrip": false,
+    "single_word": false
+  },
+  "cls_token": {
+    "__type": "AddedToken",
+    "content": "<s>",
+    "lstrip": false,
+    "normalized": true,
+    "rstrip": false,
+    "single_word": false
+  },
+  "eos_token": {
+    "__type": "AddedToken",
+    "content": "</s>",
+    "lstrip": false,
+    "normalized": true,
+    "rstrip": false,
+    "single_word": false
+  },
+  "errors": "replace",
+  "mask_token": {
+    "__type": "AddedToken",
+    "content": "<mask>",
+    "lstrip": true,
+    "normalized": true,
+    "rstrip": false,
+    "single_word": false
+  },
+  "model_max_length": 128,
+  "name_or_path": "facebook/blenderbot-400M-distill",
+  "pad_token": {
+    "__type": "AddedToken",
+    "content": "<pad>",
+    "lstrip": false,
+    "normalized": true,
+    "rstrip": false,
+    "single_word": false
+  },
+  "sep_token": {
+    "__type": "AddedToken",
+    "content": "</s>",
+    "lstrip": false,
+    "normalized": true,
+    "rstrip": false,
+    "single_word": false
+  },
+  "special_tokens_map_file": "blenderbot-1B-distill/special_tokens_map.json",
+  "tokenizer_class": "BlenderbotTokenizer",
+  "tokenizer_file": null,
+  "unk_token": {
+    "__type": "AddedToken",
+    "content": "<unk>",
+    "lstrip": false,
+    "normalized": true,
+    "rstrip": false,
+    "single_word": false
+  }
+}

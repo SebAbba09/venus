@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    {% load django_bootstrap5%}
+    {% load static %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+        h1 {
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        button {
+            background-color: #007bff;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button.remove {
+            background-color: #dc3545;
+        }
+        button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>To-Do List</h1>
+        <input type="text" id="task-input" placeholder="Add a new task" />
+        <button id="add-task">Add Task</button>
+        <ul id="task-list"></ul>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const taskInput = document.getElementById('task-input');
+            const addTaskButton = document.getElementById('add-task');
+            const taskList = document.getElementById('task-list');
+
+            addTaskButton.addEventListener('click', () => {
+                const taskText = taskInput.value.trim();
+                if (taskText) {
+                    const listItem = document.createElement('li');
+                    listItem.innerHTML = `
+                        ${taskText}
+                        <button class="remove">Remove</button>
+                    `;
+                    taskList.appendChild(listItem);
+                    taskInput.value = '';
+
+                    listItem.querySelector('.remove').addEventListener('click', () => {
+                        taskList.removeChild(listItem);
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

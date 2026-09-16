@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Énigme</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{% load django_bootstrap5%}
+    {% load static %}
+</head>
+<body>
+    <h1>Énigme</h1>
+    <div id="riddle">
+        <p>{{ riddle.question }}</p>
+        {% if riddle.hint %}
+            <p>Indice: {{ riddle.hint }}</p>
+        {% endif %}
+        <input type="hidden" id="riddle_id" value="{{ riddle.id }}">
+        <input type="text" id="answer_input" placeholder="Votre réponse">
+        <button id="submit_answer">Soumettre</button>
+    </div>
+    <div id="result"></div>
+
+    <script>
+        $(document).ready(function() {
+            $('#submit_answer').click(function() {
+                var riddle_id = $('#riddle_id').val();
+                var answer = $('#answer_input').val();
+                $.ajax({
+                    url: '{% url "check_riddle_answer" %}',
+                    type: 'POST',
+                    headers: {
+                        'X-CSRFToken': '{{ csrf_token }}'
+                    },
+                    data: {
+                        'riddle_id': riddle_id,
+                        'answer': answer
+                    },
+                    success: function(response) {
+                        if (response.result == 'correct') {
+                            $('#result').html('<p>Correct! Bien joué!</p>');
+                        } else {
+                            $('#result').html('<p>Incorrect. La bonne réponse était: ' + response.correct_answer + '</p>');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

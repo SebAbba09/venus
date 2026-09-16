@@ -1,0 +1,16 @@
+<!-- templates/reminders/reminder_confirm_delete.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Reminder</title>
+</head>
+<body>
+    <h1>Are you sure you want to delete "{{ reminder.message }}"?</h1>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Yes, delete</button>
+        <a href="{% url 'reminder_list' %}">Cancel</a>
+    </form>
+</body>
+</html>

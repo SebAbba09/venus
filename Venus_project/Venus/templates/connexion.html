@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion</title>
+    {% load django_bootstrap5 %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'w3.css' %}">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet">
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Poppins:wight@300;400;500;600;700;800;900&display-swap");
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+
+            align-items: center;
+            min-height: 100vh;
+            background: url('/static/image1.jpeg') no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        .header {
+            background: #7b1fa2;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 0 0 10px 10px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+
+
+        }
+        .header ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 20px; /* Ajoute un espacement entre les éléments */
+        }
+        .header ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: block;
+        }
+
+        .header ul li a:hover {
+            background-color: #6a1b9a;
+            border-radius: 5px;
+        }
+
+        .wrapper {
+            width: 500px;
+            background: transparent;
+            border: 2px solid transparent;
+            border-radius: 10px;
+            padding: 10px 20px;
+        }
+        .wrapper h1 {
+            font-size: 30px;
+            text-align: center;
+        }
+        .wrapper, input-inbox {
+            position: center;
+            width: 40%;
+            height: 350px;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 2);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 2);
+            color: #fff;
+            margin: 30px, 0;
+        }
+        .input-box {
+            position: relative;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .input-box input {
+            width: 100%;
+            height: 50px;
+            background: transparent;
+            border: none;
+            outline: none;
+            border: 2px solid rgba(255, 255, 255, 2);
+            border-radius: 10px;
+            font-size: 16px;
+            color: #fff;
+            padding: 20px 45px 20px 20px;
+        }
+        .input-box input::placeholder {
+            color: #fff;
+        }
+        .input-box i {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .wrapper .remember-forgot {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14.5px;
+            margin: -15px 0 15px;
+            color: #fff;
+        }
+        .remember-forgot label input {
+            accent-color: #fff;
+            text-decoration: none;
+        }
+        .remember-forgot a:hover {
+            text-decoration: underline;
+        }
+        .wrapper .btn {
+            width: 30%;
+            height: 45px;
+            background: #fff;
+            border: none;
+            outline: none;
+            border-radius: 40px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+            cursor: pointer;
+            font-size: 16px;
+            color: black;
+            font-weight: 600;
+        }
+        .wrapper, .register-link {
+            font-size: 14.5px;
+            text-align: center;
+            margin: 20px 0 15px;
+        }
+        .register-link p {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .register-link a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .register-link p a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <ul class="nav nav-pills justify-content-center">
+        <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">VENUS</a></li>
+
+
+        <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Contactez nous</a></li>
+    </ul>
+</header>
+
+<div class="wrapper">
+    <form method="post">
+        {% csrf_token %}
+        <h1>Connexion</h1>
+        <br>
+        <div class="input-box">
+            <input type="text" name="username" placeholder="Nom d'utilisateur" required>
+        </div>
+        <br>
+        <div class="input-box">
+            <input type="password" id="password" name="password" placeholder="Mot de passe" required>
+            <i class="bx bx-show" onclick="togglePasswordVisibility()"></i>
+        </div>
+        <br>
+        <div class="remember-forgot">
+            <p><a href="{% url 'mdp' %}">Mot de passe oublié?</a></p>
+
+        </div>
+        <button type="submit" class="btn">Se connecter</button>
+        <div class="register-link">
+            <br>
+            <p>Vous n'avez pas de compte? <a href="{% url 'login' %}">S'inscrire</a></p>
+        </div>
+    </form>
+</div>
+
+<script>
+    function togglePasswordVisibility() {
+        const passwordField = document.getElementById('password');
+        const passwordIcon = document.querySelector('.bx');
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+            passwordIcon.classList.replace('bx-show', 'bx-hide');
+        } else {
+            passwordField.type = 'password';
+            passwordIcon.classList.replace('bx-hide', 'bx-show');
+        }
+    }
+</script>
+
+</body>
+</html>

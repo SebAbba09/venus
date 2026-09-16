@@ -1,0 +1,16 @@
+<!-- templates/reminders/reminder_form.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create/Edit Reminder</title>
+</head>
+<body>
+    <h1>Create/Edit Reminder</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,15 @@
+body {
+  background: linear-gradient(135deg, rgba(255, 126, 95, 0.8), rgba(254, 180, 123, 0.8));
+  background-attachment: fixed;
+  color: #333;
+  font-family: Arial, sans-serif;
+  overflow: auto; /* Assurez-vous que le défilement est activé */
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  backdrop-filter: blur(8px); /* Effet de flou léger */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère pour un meilleur contraste */
+}

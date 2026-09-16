@@ -1,0 +1,20 @@
+<!-- riddle_result.html -->
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Résultat de l'Énigme</title>
+    {% load django_bootstrap5%}
+    {% load static %}
+</head>
+<body>
+    <h1>Résultat</h1>
+    {% if is_correct %}
+        <p>Bonne réponse!</p>
+    {% else %}
+        <p>Mauvaise réponse! La bonne réponse était: {{ riddle.answer }}</p>
+    {% endif %}
+    <a href="{% url 'start_riddle_game' %}">Essayer une autre énigme</a>
+</body>
+</html>

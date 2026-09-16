@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    {% load static %}
+    {% load django_bootstrap5 %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes Événements</title>
+    <link href="{% static 'w3.css' %}" rel="stylesheet">
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            background: url('/static/image2.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            padding: 20px;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: auto;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background: rgba(255, 255, 255, 0.1);
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mes Événements</h1>
+        {% if events %}
+            <ul>
+                {% for event in events %}
+                    <li>{{ event.name }} - {{ event.date }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Vous n'avez ajouté aucun événement.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

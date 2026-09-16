@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Avatar Gallery</title>
+    {% load django_bootstrap5%}
+    {% load static %}
+    <style>
+     /* Animation de zoom */
+        .zoom-in-out {
+            animation: zoomInOut 0.6s;
+        }
+
+        @keyframes zoomInOut {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Animation de transition */
+        .fade-out {
+            animation: fadeOut 1s forwards;
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+
+        .header {
+            background: #7b1fa2;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 0 0 10px 10px;
+            width: 100%;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(120deg, #FF7E5F, #FD3A84, #6A0572);
+            color: white;
+        }
+        .main-avatar {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .main-avatar img {
+            height: 200px;
+        }
+        .gallery-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .gallery {
+            border: 1px solid #ccc;
+            margin: 5px;
+            cursor: pointer;
+        }
+        .gallery:hover {
+            border: 1px solid #777;
+        }
+        .gallery img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+ <header class="header">
+        <ul class="nav nav-pills justify-content-center">
+            <li class="nav-item"><a href="{% url 'home' %}" class="nav-link active" aria-current="page">Home</a></li>
+            <li class="nav-item"><a href="{% url 'login' %}" class="nav-link">Inscription</a></li>
+            <li class="nav-item"><a href="{% url 'chat_form' %}" class="nav-link">Discutez</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Avatar</a></li>
+            <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Contactez nous</a></li>
+        </ul>
+    </header>
+    <div class="main-avatar">
+        <img id="mainAvatar" src="https://api.dicebear.com/9.x/adventurer/svg?seed=Callie" alt="Main Avatar">
+        <div>
+            <button id="selectButton" class="btn btn-primary mt-3" onclick="selectAvatar()">Sélectionner</button>
+            <button id="validateButton" class="btn btn-success mt-3" onclick="validateAvatar()" style="display: none;">Valider</button>
+            <button id="changeButton" class="btn btn-secondary mt-3" onclick="enableAvatarChange()" style="display: none;">Modifier</button>
+        </div>
+    </div>
+    <div class="gallery-container">
+        <div class="gallery" onclick="updateMainAvatar('Callie')">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Callie" alt="Callie">
+        </div>
+        <div class="gallery" onclick="updateMainAvatar('Gizmo')">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Gizmo" alt="Gizmo">
+        </div>
+        <div class="gallery" onclick="updateMainAvatar('Harley')">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Harley" alt="Harley">
+        </div>
+        <div class="gallery" onclick="updateMainAvatar('Buddy')">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Buddy" alt="Buddy">
+        </div>
+        <div class="gallery" onclick="updateMainAvatar('Buster')">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Buster" alt="Buster">
+        </div>
+        <div class="gallery" onclick="updateMainAvatar('Smokey')">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Smokey" alt="Smokey">
+        </div>
+        <div class="gallery" onclick="updateMainAvatar('Muffin')">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Muffin" alt="Muffin">
+        </div>
+        <div class="gallery" onclick="updateMainAvatar('Annie')">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Annie" alt="Annie">
+        </div>
+        <div class="gallery" onclick="updateMainAvatar('Lily')">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Lily" alt="Lily">
+        </div>
+        <div class="gallery" onclick="updateMainAvatar('Angel')">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Angel" alt="Angel">
+        </div>
+        <div class="gallery" onclick="updateMainAvatar('Chloe')">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Chloe" alt="Chloe">
+        </div>
+        <div class="gallery" onclick="updateMainAvatar('Midnight')">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Midnight" alt="Midnight">
+        </div>
+        <div class="gallery" onclick="updateMainAvatar('Oliver')">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Oliver" alt="Oliver">
+        </div>
+        <div class="gallery" onclick="updateMainAvatar('Mia')">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Mia" alt="Mia">
+        </div>
+        <div class="gallery" onclick="updateMainAvatar('Bear')">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Bear" alt="Bear">
+        </div>
+        <div class="gallery" onclick="updateMainAvatar('Leo')">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Leo" alt="Leo">
+        </div>
+        <div class="gallery" onclick="updateMainAvatar('Max')">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Max" alt="Max">
+        </div>
+        <div class="gallery" onclick="updateMainAvatar('Toby')">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Toby" alt="Toby">
+        </div>
+        <div class="gallery" onclick="updateMainAvatar('Jasper')">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Jasper" alt="Jasper">
+        </div>
+        <div class="gallery" onclick="updateMainAvatar('Kiki')">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Kiki" alt="Kiki">
+        </div>
+        <div class="gallery" onclick="updateMainAvatar('Bella')">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Bella" alt="Bella">
+        </div>
+        <div class="gallery" onclick="updateMainAvatar('Abby')">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Abby" alt="Abby">
+        </div>
+        <div class="gallery" onclick="updateMainAvatar('Luna')">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Luna" alt="Luna">
+        </div>
+        <div class="gallery" onclick="updateMainAvatar('Charlie')">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Charlie" alt="Charlie">
+        </div>
+        <div class="gallery" onclick="updateMainAvatar('Lucy')">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Lucy" alt="Lucy">
+        </div>
+        <div class="gallery" onclick="updateMainAvatar('Felix')">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Felix" alt="Felix">
+        </div>
+        <div class="gallery" onclick="updateMainAvatar('Cleo')">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Cleo" alt="Cleo">
+        </div>
+        <div class="gallery" onclick="updateMainAvatar('Bubba')">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Bubba" alt="Bubba">
+        </div>
+        <div class="gallery" onclick="updateMainAvatar('Jack')">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Jack" alt="Jack">
+        </div>
+        <div class="gallery" onclick="updateMainAvatar('Coco')">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Coco" alt="Coco">
+        </div>
+        <div class="gallery" onclick="updateMainAvatar('Boo')">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Boo" alt="Boo">
+        </div>
+        <div class="gallery" onclick="updateMainAvatar('Daisy')">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Daisy" alt="Daisy">
+        </div>
+        <div class="gallery" onclick="updateMainAvatar('Jasmine')">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Jasmine" alt="Jasmine">
+        </div>
+        <div class="gallery" onclick="updateMainAvatar('Mimi')">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Mimi" alt="Mimi">
+        </div>
+        <div class="gallery" onclick="updateMainAvatar('Trouble')">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Trouble" alt="Trouble">
+        </div>
+        <div class="gallery" onclick="updateMainAvatar('Sasha')">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Sasha" alt="Sasha">
+        </div>
+        <div class="gallery" onclick="updateMainAvatar('Chester')">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Chester" alt="Chester">
+        </div>
+        <div class="gallery" onclick="updateMainAvatar('Miss Kitty')">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Miss Kitty" alt=" Miss Kitty">
+        </div>
+        <div class="gallery" onclick="updateMainAvatar('Salem')">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Salem" alt="Salem">
+        </div>
+        <div class="gallery" onclick="updateMainAvatar('Shadow')">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Shadow" alt="Shadow">
+        </div>
+        <div class="gallery" onclick="updateMainAvatar('Ore')">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Oreo" alt="Oreo">
+
+        </div>
+        <div class="gallery" onclick="updateMainAvatar('Molly')">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Molly" alt="Molly">
+        </div>
+        <div class="gallery" onclick="updateMainAvatar('Zoe')">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Zoe" alt="Zoe">
+        </div>
+        <div class="gallery" onclick="updateMainAvatar('Sugar')">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Sugar" alt="Sugar">
+        </div>
+        <div class="gallery" onclick="updateMainAvatar('Princess')">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Princess" alt="Princess">
+        </div>
+    </div>
+
+     <script>
+        let selectedAvatar = 'Callie';  // Avatar par défaut
+
+        function updateMainAvatar(name) {
+            const mainAvatar = document.getElementById('mainAvatar');
+            mainAvatar.classList.add('zoom-in-out'); // Ajouter l'animation
+            mainAvatar.src = `https://api.dicebear.com/9.x/adventurer/svg?seed=${name}`;
+            selectedAvatar = name;  // Mettre à jour le nom de l'avatar sélectionné
+
+            // Retirer l'animation après sa fin
+            setTimeout(() => {
+                mainAvatar.classList.remove('zoom-in-out');
+            }, 600); // Correspond à la durée de l'animation
+
+            // Afficher le bouton "Valider" après la sélection d'un avatar
+
+        }
+
+        function selectAvatar() {
+            alert(`Avatar sélectionné: ${selectedAvatar}`);
+            // Masquer le bouton de sélection et afficher le bouton de modification
+            document.getElementById('selectButton').style.display = 'none';
+            document.getElementById('validateButton').style.display = 'inline-block';
+            document.getElementById('changeButton').style.display = 'inline-block';
+            // Désactiver la galerie d'avatars pour éviter les changements
+            document.querySelectorAll('.gallery').forEach(gallery => {
+                gallery.style.pointerEvents = 'none';
+            });
+        }
+
+        function validateAvatar() {
+            alert(`Avatar validé: ${selectedAvatar}`);
+            // Masquer le bouton de validation et afficher le bouton de modification
+            document.getElementById('selectButton').style.display = 'none';
+            document.getElementById('validateButton').style.display = 'inline-block';
+            // Désactiver la galerie d'avatars pour éviter les changements
+            document.querySelectorAll('.gallery').forEach(gallery => {
+                gallery.style.pointerEvents = 'none';
+            });
+            // Rediriger vers la page 'chat_form'
+    setTimeout(() => {
+        window.location.href = "{% url 'chat_form' %}";
+    }, 1000);
+        }
+
+
+        function enableAvatarChange() {
+            // Afficher le bouton de sélection et masquer le bouton de modification
+            document.getElementById('selectButton').style.display = 'inline-block';
+            document.getElementById('changeButton').style.display = 'none';
+            // Activer la galerie d'avatars pour les changements
+            document.querySelectorAll('.gallery').forEach(gallery => {
+                gallery.style.pointerEvents = 'auto';
+            });
+        }
+    </script>
+</body>
+</html>

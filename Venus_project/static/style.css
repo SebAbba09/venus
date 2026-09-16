@@ -1,0 +1,47 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffcc99;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #ff6600;
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav button {
+    background-color: #ff9966;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+main {
+    padding: 20px;
+}
+
+section.hidden {
+    display: none;
+}
+
+#chatbox {
+    padding: 20px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+
+#messages {
+    margin-bottom: 10px;
+}
