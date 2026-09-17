@@ -1,5 +1,3 @@
-# __init__.py
-from __future__ import absolute_import, unicode_literals
-from .celery import app as celery_app
-
-__all__ = ('celery_app',)
+# M2 baseline intentionally does not auto-load Celery.
+# Legacy Celery startup hooks remain in the archive branch and should not be imported here.
+__all__ = ()

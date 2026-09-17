@@ -47,9 +47,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    #'mfa.middleware.MfaMiddleware',
-    'axes.middleware.AxesMiddleware',
-
 ]
 
 AUTHENTICATION_BACKENDS = [
