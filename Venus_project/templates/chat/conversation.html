@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="fr">
+<head><meta charset="utf-8"><title>Venus M2</title></head>
+<body>
+  <main>
+    <h1>Venus M2</h1>
+    <p>Assistant conversationnel - baseline avant intégration RAG.</p>
+    <section id="messages" aria-live="polite"></section>
+    <form id="chat-form">
+      {% csrf_token %}
+      <label for="message">Votre question</label>
+      <input id="message" name="message" required autocomplete="off">
+      <button type="submit">Envoyer</button>
+    </form>
+    <form method="post" action="{% url 'users:logout' %}">
+      {% csrf_token %}
+      <button type="submit">Déconnexion</button>
+    </form>
+  </main>
+  <script>
+    const form = document.getElementById("chat-form");
+    const input = document.getElementById("message");
+    const messages = document.getElementById("messages");
+    const csrfToken = document.querySelector("[name=csrfmiddlewaretoken]").value;
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const content = input.value.trim();
+      if (!content) return;
+      const response = await fetch("{% url 'chat:message' %}", {
+        method: "POST",
+        headers: {"Content-Type": "application/json", "X-CSRFToken": csrfToken},
+        body: JSON.stringify({message: content})
+      });
+      const data = await response.json();
+      if (!response.ok) {
+        messages.textContent = data.error || "Une erreur est survenue.";
+        return;
+      }
+      messages.textContent = data.response;
+      input.value = "";
+    });
+  </script>
+</body>
+</html>

@@ -33,18 +33,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Venus',
-    'django_bootstrap5',
-    'django_celery_beat',
-    'axes',
-    'mfa',
-
+    'users',
+    'chat',
 ]
 
-AXES_FAILURE_LIMIT = 5  # cette partie du code ne concerne qu'axes
-AXES_COOLOFF_TIME = 1  # Durée en heures après lesquelles les tentatives échouées sont réinitialisées
-
-AUTH_USER_MODEL = 'Venus.CustomUser'
+AUTH_USER_MODEL = 'users.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -60,11 +53,8 @@ MIDDLEWARE = [
 ]
 
 AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',  # Autres backends d'authentification que vous utilisez
-    'axes.backends.AxesStandaloneBackend',  # Mettre à jour ici
+    'django.contrib.auth.backends.ModelBackend',
 ]
-MFA_OTP_TOTP_ISSUER = 'Venus'
-MFA_LOGIN_VIEW = 'mfa.views.signin'
 
 ROOT_URLCONF = 'Venus_project.urls'
 
@@ -115,9 +105,6 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
-    {
-        'NAME': 'Venus.validators.CustomPasswordValidator',  # Ajoutez ici votre validateur personnalisé
-    },
 ]
 
 # Internationalization
@@ -136,18 +123,6 @@ LANGUAGES = [
     ('en', 'English'),
     ('fr', 'French'),
 ]
-# fichier de configuration pour celery
-
-# settings.py
-CELERY_BROKER_URL = 'redis://localhost:6379/0'
-CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
-CELERY_ACCEPT_CONTENT = ['json']
-CELERY_TASK_SERIALIZER = 'json'
-CELERY_RESULT_SERIALIZER = 'json'
-CELERY_TIMEZONE = 'Europe/Paris'
-
-
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
@@ -169,9 +144,9 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True  # Expirer la session lorsque l'utilisate
 CSRF_COOKIE_SECURE = False
 SESSION_COOKIE_HTTPONLY = True
 
-# implementation de jwt
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    ),
-}
+LOGIN_URL = 'users:login'
+LOGIN_REDIRECT_URL = 'chat:conversation'
+LOGOUT_REDIRECT_URL = 'users:login'
+
+M2_MODEL_NAME = os.getenv('M2_MODEL_NAME', 'facebook/blenderbot-400M-distill')
+M2_MODEL_PATH = os.getenv('M2_MODEL_PATH', '')

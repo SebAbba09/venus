@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="fr">
+<head><meta charset="utf-8"><title>Inscription Venus M2</title></head>
+<body>
+  <h1>Inscription</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Créer le compte</button>
+  </form>
+  <a href="{% url 'users:login' %}">Se connecter</a>
+</body>
+</html>
