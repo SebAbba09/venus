@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 from functools import lru_cache
+from typing import Any
 
 from django.conf import settings
 
@@ -10,6 +11,7 @@ class GeneratedResponse:
     model_name: str
     backend: str | None = None
     sources: list[str] | None = None
+    metadata: dict[str, Any] | None = None
 
 
 class TextGenerator:
@@ -42,6 +44,7 @@ class StubGenerator(TextGenerator):
             model_name="stub-generator",
             backend=self.backend_name,
             sources=[],
+            metadata={"messages_count": len(messages or []), "context": bool(context)},
         )
 
 
@@ -49,18 +52,19 @@ class TransformersGenerator(TextGenerator):
     backend_name = "transformers"
 
     def __init__(self, model_name=None, model_path=None):
-        self.model_name = model_name or settings.M2_MODEL_NAME or "facebook/blenderbot-400M-distill"
-        self.model_path = model_path or settings.M2_MODEL_PATH
+        self.model_name = (model_name if model_name is not None else settings.M2_MODEL_NAME) or ""
+        self.model_path = model_path if model_path is not None else settings.M2_MODEL_PATH
         self._tokenizer = None
         self._model = None
 
     def _load(self):
-        from transformers import BlenderbotForConditionalGeneration, BlenderbotTokenizer
+        if not self.model_name:
+            raise ValueError("M2_MODEL_NAME must be configured before using the transformers backend.")
 
-        tokenizer_source = self.model_name
-        model_source = self.model_path or self.model_name
-        self._tokenizer = BlenderbotTokenizer.from_pretrained(tokenizer_source)
-        self._model = BlenderbotForConditionalGeneration.from_pretrained(model_source)
+        from transformers import AutoModelForCausalLM, AutoTokenizer
+
+        self._tokenizer = AutoTokenizer.from_pretrained(self.model_name)
+        self._model = AutoModelForCausalLM.from_pretrained(self.model_name)
 
     def generate(self, messages=None, context=None, **kwargs) -> GeneratedResponse:
         if not messages:
@@ -87,6 +91,7 @@ class TransformersGenerator(TextGenerator):
             model_name=self.model_name,
             backend=self.backend_name,
             sources=[],
+            metadata={"messages_count": len(messages or []), "context": bool(context)},
         )
 
 
@@ -96,3 +101,7 @@ def get_generator():
     if backend == 'transformers':
         return TransformersGenerator()
     return StubGenerator()
+
+
+def reset_generator_cache():
+    get_generator.cache_clear()

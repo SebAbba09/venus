@@ -1,13 +1,13 @@
 from unittest.mock import patch
 
+from django.conf import settings
 from django.test import TestCase
 from django.urls import reverse
-from django.conf import settings
 
 from users.models import User
 
 from .models import Conversation, Message
-from .services import GeneratedResponse, StubGenerator, get_generator
+from .services import GeneratedResponse, StubGenerator, TransformersGenerator, get_generator, reset_generator_cache
 
 
 class ChatBaselineTests(TestCase):
@@ -17,6 +17,7 @@ class ChatBaselineTests(TestCase):
             password="A secure password 123!",
         )
         self.client.force_login(self.user)
+        reset_generator_cache()
 
     @patch("chat.views.get_generator")
     def test_message_endpoint_persists_conversation_and_response(self, get_generator):
@@ -77,14 +78,42 @@ class ChatBaselineTests(TestCase):
         self.assertIn("Bonjour", result.text)
         self.assertEqual(result.sources, [])
 
-    def test_generator_backend_selection_uses_settings(self):
-        original = settings.M2_GENERATOR_BACKEND
+    def test_generator_backend_default_is_stub(self):
+        reset_generator_cache()
         settings.M2_GENERATOR_BACKEND = "stub"
-        try:
-            generator = get_generator()
-            self.assertEqual(generator.backend_name, "stub")
-        finally:
-            settings.M2_GENERATOR_BACKEND = original
+        generator = get_generator()
+        self.assertEqual(generator.backend_name, "stub")
+
+    def test_generator_cache_refreshes_after_backend_change(self):
+        previous_backend = settings.M2_GENERATOR_BACKEND
+        settings.M2_GENERATOR_BACKEND = "stub"
+        reset_generator_cache()
+        self.assertEqual(get_generator().backend_name, "stub")
+
+        settings.M2_GENERATOR_BACKEND = "transformers"
+        reset_generator_cache()
+        self.assertEqual(get_generator().backend_name, "transformers")
+
+        settings.M2_GENERATOR_BACKEND = previous_backend
+        reset_generator_cache()
+
+    def test_transformers_generator_is_instantiable_without_loading_model(self):
+        generator = TransformersGenerator(model_name="test-model")
+        self.assertEqual(generator.backend_name, "transformers")
+        self.assertEqual(generator.model_name, "test-model")
+        self.assertIsNone(generator._model)
+        self.assertIsNone(generator._tokenizer)
+
+    def test_generated_response_contract_is_coherent(self):
+        response = GeneratedResponse(
+            text="Réponse",
+            model_name="stub-generator",
+            backend="stub",
+            sources=[],
+            metadata={"messages_count": 1},
+        )
+        self.assertEqual(response.backend, "stub")
+        self.assertEqual(response.metadata["messages_count"], 1)
 
     def test_can_reuse_existing_conversation_for_same_user(self):
         conversation = Conversation.objects.create(user=self.user)
