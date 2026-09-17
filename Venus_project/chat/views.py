@@ -1,5 +1,6 @@
 import json
 
+from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.shortcuts import render
@@ -12,6 +13,17 @@ from .services import get_generator
 @login_required
 def conversation_view(request):
     return render(request, "chat/conversation.html")
+
+
+def _get_recent_messages(conversation, limit=None):
+    limit = limit or getattr(settings, 'M2_CONTEXT_MESSAGE_LIMIT', 8)
+    messages = list(
+        conversation.messages.order_by('-created_at').values('role', 'content')[:limit]
+    )
+    return [
+        {"role": item["role"], "content": item["content"]}
+        for item in reversed(messages)
+    ]
 
 
 @login_required
@@ -42,7 +54,10 @@ def message_view(request):
         role=Message.Role.USER,
         content=content.strip(),
     )
-    response = get_generator().generate(content.strip())
+
+    recent_messages = _get_recent_messages(conversation)
+    response = get_generator().generate(messages=recent_messages, context=content.strip())
+
     Message.objects.create(
         conversation=conversation,
         role=Message.Role.ASSISTANT,
@@ -54,6 +69,7 @@ def message_view(request):
             "conversation_id": conversation.id,
             "response": response.text,
             "model": response.model_name,
-            "sources": [],
+            "backend": response.backend,
+            "sources": response.sources or [],
         }
     )

@@ -145,5 +145,7 @@ LOGIN_URL = 'users:login'
 LOGIN_REDIRECT_URL = 'chat:conversation'
 LOGOUT_REDIRECT_URL = 'users:login'
 
-M2_MODEL_NAME = os.getenv('M2_MODEL_NAME', 'facebook/blenderbot-400M-distill')
+M2_GENERATOR_BACKEND = os.getenv('M2_GENERATOR_BACKEND', 'stub').lower()
+M2_MODEL_NAME = os.getenv('M2_MODEL_NAME', '')
 M2_MODEL_PATH = os.getenv('M2_MODEL_PATH', '')
+M2_CONTEXT_MESSAGE_LIMIT = int(os.getenv('M2_CONTEXT_MESSAGE_LIMIT', '8'))

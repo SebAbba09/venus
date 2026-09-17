@@ -8,18 +8,48 @@ from django.conf import settings
 class GeneratedResponse:
     text: str
     model_name: str
+    backend: str | None = None
+    sources: list[str] | None = None
 
 
 class TextGenerator:
-    """Small interface that keeps generation replaceable by the future RAG layer."""
+    """Abstract contract for the M2 generation layer.
 
-    def generate(self, prompt: str) -> GeneratedResponse:
+    The generator may later receive conversation history, RAG context, and metadata,
+    but the public contract stays stable and model-agnostic.
+    """
+
+    backend_name = "base"
+
+    def generate(self, messages=None, context=None, **kwargs) -> GeneratedResponse:
         raise NotImplementedError
 
 
+class StubGenerator(TextGenerator):
+    backend_name = "stub"
+
+    def generate(self, messages=None, context=None, **kwargs) -> GeneratedResponse:
+        text = "Réponse de démonstration M2."
+        if messages:
+            last_user_message = next(
+                (m["content"] for m in reversed(messages) if m.get("role") == "user"),
+                "",
+            )
+            if last_user_message:
+                text = f"Réponse M2 pour : {last_user_message}"
+        return GeneratedResponse(
+            text=text,
+            model_name="stub-generator",
+            backend=self.backend_name,
+            sources=[],
+        )
+
+
 class TransformersGenerator(TextGenerator):
+    backend_name = "transformers"
+
     def __init__(self, model_name=None, model_path=None):
-        self.model_name = model_name or settings.M2_MODEL_NAME
+        self.model_name = model_name or settings.M2_MODEL_NAME or "facebook/blenderbot-400M-distill"
         self.model_path = model_path or settings.M2_MODEL_PATH
         self._tokenizer = None
         self._model = None
@@ -32,7 +62,17 @@ class TransformersGenerator(TextGenerator):
         self._tokenizer = BlenderbotTokenizer.from_pretrained(tokenizer_source)
         self._model = BlenderbotForConditionalGeneration.from_pretrained(model_source)
 
-    def generate(self, prompt: str) -> GeneratedResponse:
+    def generate(self, messages=None, context=None, **kwargs) -> GeneratedResponse:
+        if not messages:
+            prompt = context or "Bonjour"
+        else:
+            prompt = "\n".join(
+                f"{m.get('role', 'user')}: {m.get('content', '')}"
+                for m in messages if isinstance(m, dict)
+            )
+            if not prompt:
+                prompt = context or "Bonjour"
+
         if self._model is None or self._tokenizer is None:
             self._load()
 
@@ -42,9 +82,17 @@ class TransformersGenerator(TextGenerator):
         with torch.no_grad():
             output = self._model.generate(**inputs, max_new_tokens=150)
         text = self._tokenizer.decode(output[0], skip_special_tokens=True).strip()
-        return GeneratedResponse(text=text, model_name=self.model_name)
+        return GeneratedResponse(
+            text=text,
+            model_name=self.model_name,
+            backend=self.backend_name,
+            sources=[],
+        )
 
 
 @lru_cache(maxsize=1)
 def get_generator():
-    return TransformersGenerator()
+    backend = getattr(settings, 'M2_GENERATOR_BACKEND', 'stub').lower()
+    if backend == 'transformers':
+        return TransformersGenerator()
+    return StubGenerator()
