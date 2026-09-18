@@ -50,3 +50,58 @@ class ESTMHTMLParserTests(unittest.TestCase):
         self.assertNotIn("Formulaire de téléchargement", text)
         self.assertNotIn("Mentions légales", text)
         self.assertNotIn("color: red", text)
+
+    def test_parser_excludes_form_controls_but_keeps_documentary_choices(self):
+        html = """
+        <main>
+          <h2>Processus de préinscription</h2>
+          <form>
+            <h3>Documents à fournir</h3>
+            <select id="pays-v"><option>Sél. Pays</option><option>Sénégal</option></select>
+            <select id="formation"><option>Sél. Formation</option><option>Licence Informatique (Bac+3)</option></select>
+            <p>Licence Informatique (Bac+3)</p>
+            <div class="custom-file">
+              <input type="file">
+              <label>Cliquer pour ajouter</label>
+            </div>
+            <div class="custom-control"><label>J'en ai 2</label></div>
+          </form>
+        </main>
+        """
+
+        parser = ESTMHTMLParser()
+        parser.feed(html)
+        parser.close()
+        text = parser.get_text()
+
+        self.assertIn("Processus de préinscription", text)
+        self.assertIn("Documents à fournir", text)
+        self.assertIn("Licence Informatique (Bac+3)", text)
+        self.assertNotIn("Sél. Pays", text)
+        self.assertNotIn("Sénégal", text)
+        self.assertNotIn("Sél. Formation", text)
+        self.assertNotIn("Cliquer pour ajouter", text)
+        self.assertNotIn("J'en ai 2", text)
+
+    def test_parser_keeps_contact_details_but_excludes_form_and_map(self):
+        html = """
+        <main>
+          <h3>Formulaire de contact</h3>
+          <form><input><textarea>Carte en cours de chargement...</textarea></form>
+          <div class="contact">Dakar, avenue Cheikh Anta DIOP</div>
+          <div class="contact">estm@estm.edu.sn</div>
+          <div class="contact">+221 33 825 28 89</div>
+          <div class="map-container"><div id="map">Carte en cours de chargement...</div></div>
+        </main>
+        """
+
+        parser = ESTMHTMLParser()
+        parser.feed(html)
+        parser.close()
+        text = parser.get_text()
+
+        self.assertIn("Dakar, avenue Cheikh Anta DIOP", text)
+        self.assertIn("estm@estm.edu.sn", text)
+        self.assertIn("+221 33 825 28 89", text)
+        self.assertNotIn("Formulaire de contact", text)
+        self.assertNotIn("Carte en cours de chargement", text)

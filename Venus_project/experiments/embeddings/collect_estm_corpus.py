@@ -215,24 +215,33 @@ class ESTMHTMLParser(HTMLParser):
         "svg",
         "nav",
         "footer",
-        "form",
         "button",
+        "input",
+        "textarea",
     }
 
     SKIP_CLASS_TOKENS = {
         "breadcrumb-estm",
         "btn",
         "cookie-consent",
+        "custom-control",
+        "custom-file",
         "dropdown-menu",
         "large-screen",
+        "md-form",
         "mask",
         "modal",
         "nav",
         "navbar",
         "small-screen",
+        "stepwizard",
         "text-estm",
         "view",
+        "map-container",
     }
+
+    VOID_TAGS = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"}
+    HEADING_TAGS = {"h1", "h2", "h3", "h4", "h5", "h6"}
 
     BLOCK_TAGS = {
         "p",
@@ -267,7 +276,7 @@ class ESTMHTMLParser(HTMLParser):
         self.text_parts: List[str] = []
         self.before_main_parts: List[str] = []
         self.current_tag_stack: List[str] = []
-        self.skipped_elements: List[str] = []
+        self.skip_stack: List[bool] = []
 
     def handle_starttag(self, tag, attrs):
         tag = tag.lower()
@@ -280,10 +289,11 @@ class ESTMHTMLParser(HTMLParser):
             tag in self.SKIP_TAGS
             or bool(class_tokens & self.SKIP_CLASS_TOKENS)
             or "modal" in element_id.lower()
+            or (tag == "select" and element_id == "pays-v")
         )
         if should_skip:
             self.skip_depth += 1
-            self.skipped_elements.append(tag)
+        self.skip_stack.append(should_skip)
 
         if tag == "main" and self.main_depth is None:
             self.main_depth = self.depth
@@ -293,6 +303,10 @@ class ESTMHTMLParser(HTMLParser):
             self.text_parts.append("\n")
 
         self.depth += 1
+
+        if tag in self.VOID_TAGS:
+            self.depth = max(0, self.depth - 1)
+            self._close_tag(tag)
 
     def handle_startendtag(self, tag, attrs):
         if tag.lower() in self.BLOCK_TAGS:
@@ -306,22 +320,20 @@ class ESTMHTMLParser(HTMLParser):
         if tag == "main" and self.in_main:
             self.in_main = False
 
-        if tag in self.SKIP_TAGS and self.skip_depth > 0:
-            self.skip_depth -= 1
-
-        if self.current_tag_stack:
-            # Remove the last matching tag where possible.
-            for index in range(len(self.current_tag_stack) - 1, -1, -1):
-                if self.current_tag_stack[index] == tag:
-                    del self.current_tag_stack[index]
-                    break
-
-        if tag in self.skipped_elements:
-            self.skipped_elements.remove(tag)
-            self.skip_depth = max(0, self.skip_depth - 1)
+        self._close_tag(tag)
 
         if tag in self.BLOCK_TAGS and self.skip_depth == 0:
             self.text_parts.append("\n")
+
+    def _close_tag(self, tag: str):
+        for index in range(len(self.current_tag_stack) - 1, -1, -1):
+            if self.current_tag_stack[index] != tag:
+                continue
+            del self.current_tag_stack[index]
+            skipped = self.skip_stack.pop(index)
+            if skipped:
+                self.skip_depth = max(0, self.skip_depth - 1)
+            return
 
     def handle_data(self, data):
         if self.skip_depth > 0:
@@ -333,6 +345,20 @@ class ESTMHTMLParser(HTMLParser):
 
         if self.current_tag_stack and self.current_tag_stack[-1] == "title":
             self.title_parts.append(text)
+
+        if (
+            self.current_tag_stack
+            and self.current_tag_stack[-1] in self.HEADING_TAGS
+            and text.lower().startswith("formulaire de ")
+        ):
+            return
+
+        if (
+            self.current_tag_stack
+            and self.current_tag_stack[-1] == "option"
+            and text.lower().startswith("sél.")
+        ):
+            return
 
         # If <main> exists, prefer its content.
         if self.main_depth is not None and self.depth < self.main_depth:
