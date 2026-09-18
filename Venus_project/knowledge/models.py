@@ -100,15 +100,27 @@ class DocumentVersion(models.Model):
     def save(self, *args, **kwargs):
         if self.file and not self.checksum:
             self.checksum = self._compute_checksum()
+            if hasattr(self.file, 'seek'):
+                self.file.seek(0)
         super().save(*args, **kwargs)
 
     def _compute_checksum(self):
         if not self.file:
             return ''
+
+        file_obj = self.file
+        if hasattr(file_obj, 'seek'):
+            file_obj.seek(0)
+
         digest = hashlib.sha256()
-        with self.file.open('rb') as file_handle:
-            for chunk in iter(lambda: file_handle.read(65536), b''):
-                digest.update(chunk)
+        while True:
+            chunk = file_obj.read(65536)
+            if not chunk:
+                break
+            digest.update(chunk)
+
+        if hasattr(file_obj, 'seek'):
+            file_obj.seek(0)
         return digest.hexdigest()
 
 
