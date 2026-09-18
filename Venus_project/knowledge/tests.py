@@ -8,6 +8,12 @@ from unittest.mock import patch
 from users.models import User
 
 from .models import Category, Document, DocumentChunk, DocumentVersion
+from .embeddings import (
+    EmbeddingProvider,
+    StubEmbeddingProvider,
+    get_embedding_provider,
+    reset_embedding_provider_cache,
+)
 from .services import (
     DocumentIngestionError,
     EmptyDocumentError,
@@ -20,8 +26,8 @@ from .services import (
     WhitespaceTokenCounter,
 )
 
-
 class KnowledgeModelsTests(TestCase):
+
     def setUp(self):
         self.user = User.objects.create_user(username='demo_user', password='A secure password 123!')
         self.category = Category.objects.create(
@@ -29,6 +35,74 @@ class KnowledgeModelsTests(TestCase):
             slug='demo-administrative',
             description='Données de démonstration.',
         )
+        reset_embedding_provider_cache()
+
+    def tearDown(self):
+        reset_embedding_provider_cache()
+        super().tearDown()
+
+    def test_stub_embedding_provider_embeds_text_with_configured_dimension(self):
+        provider = StubEmbeddingProvider(dimension=5)
+
+        embedding = provider.embed('DEMO - texte')
+
+        self.assertEqual(len(embedding), 5)
+        self.assertTrue(all(isinstance(value, float) for value in embedding))
+        self.assertEqual(provider.provider_name, 'stub')
+        self.assertIsNone(provider.model_name)
+        self.assertEqual(provider.dimension, 5)
+
+    def test_stub_embedding_provider_embeds_many_texts(self):
+        provider = StubEmbeddingProvider(dimension=3)
+
+        embeddings = provider.embed_many(['premier texte', 'second texte'])
+
+        self.assertEqual(len(embeddings), 2)
+        self.assertTrue(all(len(embedding) == 3 for embedding in embeddings))
+
+    def test_stub_embedding_provider_is_deterministic(self):
+        provider = StubEmbeddingProvider(dimension=4)
+
+        self.assertEqual(provider.embed('texte stable'), provider.embed('texte stable'))
+        self.assertEqual(
+            provider.embed_many(['a', 'b']),
+            [provider.embed('a'), provider.embed('b')],
+        )
+
+    def test_stub_embedding_provider_handles_empty_text(self):
+        provider = StubEmbeddingProvider(dimension=4)
+
+        self.assertEqual(provider.embed(''), [0.0, 0.0, 0.0, 0.0])
+
+    def test_embedding_provider_protocol_contract(self):
+        provider = StubEmbeddingProvider()
+
+        self.assertIsInstance(provider, EmbeddingProvider)
+
+    def test_embedding_provider_configuration_defaults_to_stub(self):
+        provider = get_embedding_provider()
+
+        self.assertIsInstance(provider, StubEmbeddingProvider)
+        self.assertEqual(provider.dimension, 8)
+
+    def test_embedding_provider_configuration_selects_supported_provider(self):
+        from django.test import override_settings
+
+        with override_settings(M2_EMBEDDING_PROVIDER='stub', M2_EMBEDDING_DIMENSION=6):
+            reset_embedding_provider_cache()
+            provider = get_embedding_provider()
+
+        self.assertIsInstance(provider, StubEmbeddingProvider)
+        self.assertEqual(provider.dimension, 6)
+
+    def test_embedding_provider_configuration_rejects_unsupported_provider(self):
+        from django.test import override_settings
+
+        with override_settings(M2_EMBEDDING_PROVIDER='unsupported'):
+            reset_embedding_provider_cache()
+
+            with self.assertRaises(ValueError):
+               get_embedding_provider()
 
     def test_category_creation_and_uniqueness(self):
         self.assertEqual(Category.objects.count(), 1)
