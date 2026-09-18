@@ -53,10 +53,14 @@ Thumbs.db
 
 # Fichiers de diagnostic local
 git_status.txt
-how --stat --oneline a0940f49
-tatus --short \357\201\274 Select-Object -First 50
+#how --stat --oneline a0940f49
+#tatus --short \357\201\274 Select-Object -First 50
 
 # Archives / fichiers volumineux locaux
 
 # Archives volumineuses
 *.zip
+
+# Venus M2 - données brutes du snapshot ESTM
+/Venus_project/experiments/embeddings/corpus/raw/
+/Venus_project/experiments/embeddings/corpus/clean/

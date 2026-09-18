@@ -1,0 +1,15 @@
+{
+  "chunk_count": 33,
+  "chunking": {
+    "chunk_size": 400,
+    "counter": "whitespace",
+    "counter_is_model_tokenizer": false,
+    "overlap": 50,
+    "strategy": "token_aware"
+  },
+  "document_count": 28,
+  "schema_version": "1.0",
+  "source_corpus": "corpus.jsonl",
+  "source_manifest": "manifest.json",
+  "source_sha256": "7f02f29ea8bd65c5f49ab52062261fa8156fcd850798d0ed13e99cba742aad4b"
+}
