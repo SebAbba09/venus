@@ -1,0 +1,900 @@
+"question_id","topic","difficulty","question","reference_answer","ground_truth_chunk_ids","top5_chunk_ids","hit_at_1","hit_at_5","first_relevant_rank","reciprocal_rank","generated_tokens","max_new_tokens","generation_limit_reached","termination_reason","termination_natural","response","case_class","retrieval_ok","truncation_effect","answer_correctness","answer_completeness","factual_grounding","relevance","error_type","comment"
+"Q001","formation","easy","Quels sont les deux grands programmes proposés par l'ESTM en formation initiale ?","Le programme Sciences et Technologies, destiné aux profils scientifiques et techniques (BAC+1 à Bac+5), et le programme Management-Communication (BAC+1 à Bac+5), axé sur le management et les sciences de gestion.","ESTM_001_C001","ESTM_013_C001; ESTM_009_C001; ESTM_011_C001; ESTM_018_C001; ESTM_025_C001","0","0","8","0,125","211","256","False","eos","True","Selon le contexte documentaire fourni :
+
+Les deux grands programmes proposés par l'ESTM en formation initiale sont :
+
+1. Master Ingénierie des Ressources Humaines (Bac+5)
+   - Formule : Master en format cours du soir
+   - Durée : 1 an (Master 1) + 1 an (Master 2)
+   - Coût : 90 000 FCFA par mois
+   - Date de début : Janvier 2027 pour le Master 1, Février 2027 pour le Master 2
+
+2. Diplômés d'Insertion Professionnelle
+   - Description : Développer l'insertion professionnelle des étudiants
+   - Objectif : Accompagner les étudiants dans la réalisation de projets entrepreneuriaux
+
+Il n'y a pas mentionné de programme spécifique en formation initiale autre que le Master Ingénierie des Ressources Humaines.","MISS_AT_5__EOS","no","none","incorrect","insufficient","partially_grounded","off_topic","retrieval_miss","Le chunk pertinent ESTM_001_C001 est classé au rang 8 et n'est donc pas présent dans le top-5. La réponse s'appuie sur plusieurs informations effectivement présentes dans les chunks récupérés, mais ceux-ci ne contiennent pas l'information nécessaire pour répondre à la question. La réponse est donc hors cible. Certaines affirmations supplémentaires ne sont pas clairement soutenues par le contexte. Le cas illustre principalement un échec de retrieval avec exploitation du mauvais contexte."
+"Q002","formation","easy","Quelles filières de licence sont disponibles dans le programme Sciences et Technologies de l'ESTM ?","Licence Télécommunications - Réseaux & Cybersécurité (Bac+3), Licence Génie logiciel et Réseaux (Bac+3), Licence Communication, Informatique et Multimédia (Bac+3) et Licence Génie Électrique et Energies Renouvelables (Bac+3).","ESTM_001_C001","ESTM_001_C001; ESTM_006_C001; ESTM_009_C001; ESTM_013_C001; ESTM_028_C001","1","1","1","1,0","100","256","False","eos","True","Selon le contexte documentaire fourni, il n'y a aucune mention spécifique des filières de licence disponibles dans le programme Sciences et Technologies de l'ESTM. Le contexte principal contient des informations sur différents programmes de formation à distance et à distance, y compris des licences en Sciences de gestion, Management, et autres spécialisations, mais ne donne pas d'informations spécifiques sur les filières de licence offertes dans le programme Sciences et Technologies.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q003","formation","medium","Quel est l'objectif affiché du programme Management-Communication de l'ESTM ?","Donner aux étudiants les connaissances et compétences nécessaires pour avoir une approche réfléchie du management et des sciences de gestion, afin de mieux cerner le fonctionnement des entreprises par rapport aux enjeux fondamentaux de la société.","ESTM_001_C001","ESTM_009_C001; ESTM_013_C001; ESTM_018_C001; ESTM_011_C001; ESTM_027_C001","0","0","6","0,16666666666666666","62","256","False","eos","True","L'objectif affiché du programme Management-Communication de l'ESTM est de délivrer des formations reconnues, innovantes et de qualité à ses étudiants, ainsi que de les accompagner dans leur insertion professionnelle et dans la construction d'une belle carrière.","MISS_AT_5__EOS","no","none","incorrect","insufficient","grounded","partly_relevant","retrieval_miss","Le chunk pertinent ESTM_001_C001 est classé au rang 6 et n'est donc pas présent dans le top-5. Le top-5 contient toutefois ESTM_027_C001, consacré au programme Marketing-Communication, ainsi qu'ESTM_009_C001 qui décrit des objectifs généraux de l'ESTM. La réponse reprend des informations réellement présentes dans ESTM_009_C001, mais répond à l'objectif général de l'établissement plutôt qu'à l'objectif spécifique du programme Management-Communication. Le cas illustre un échec de retrieval conduisant à une réponse documentée mais insuffisamment ciblée."
+"Q004","formation","easy","Quels Masters sont propos?s dans le programme Sciences et Technologies de l?ESTM ?","Plusieurs Masters sont proposés dans le programme Sciences et Technologies : Master Big Data & Intelligence Artificielle, Master Monétique et Transactions Sécurisées, Master Sécurité des Systèmes d'Information, Master Télécommunications et Réseaux, Master Génie Électrique et Énergies Renouvelables, et Master Génie Logiciel et Administration Réseau.","ESTM_001_C001","ESTM_001_C001; ESTM_006_C001; ESTM_009_C001; ESTM_013_C001; ESTM_025_C001","1","1","1","1,0","165","256","False","eos","True","Selon le contexte documentaire fourni, le programme Sciences et Technologies de l'ESTM propose plusieurs masters suivants :
+
+1. Master Big data & Intelligence artificielle (Bac+5)
+2. Master Monétique et Transactions Sécurisées (Bac+5)
+3. Master Sécurité des Systèmes d'Information (Bac+5)
+4. Master Télécommunications et Réseaux (Bac+5)
+5. Master Génie Électrique et Energies Renouvelables (Bac+5)
+6. Master Génie Logiciel et Administration Réseau (Bac+5)
+
+Il n'y a pas mentionné directement qu'il y a d'autres masters proposés dans le programme Sciences et Technologies de l'ESTM.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q005","formation","easy","Quelles filières de Master relèvent du programme Management-Communication de l'ESTM ?","Master Ingénierie des Ressources Humaines (Bac+5), Master Management de projets et Innovation (Bac+5), Master Marketing-Communication (Bac+5) et Master Finance-Comptabilité (Bac+5).","ESTM_001_C001","ESTM_027_C001; ESTM_005_C001; ESTM_009_C001; ESTM_026_C001; ESTM_001_C001","0","1","5","0,2","85","256","False","eos","True","Selon le contexte documentaire fourni :
+
+La filière Management-Communication de l'ESTM relève du programme suivant :
+
+Master Marketing-Communication (Bac+5)
+
+Cette réponse est basée sur le fait qu'il y a mentionné clairement dans le contexte documentaire que ""Le programme Management-Communication est un cursus ouvert de BAC+1 à Bac+5.""","HIT_AT_5__EOS","yes","","","","","","",""
+"Q006","career","medium","Quels débouchés professionnels sont mentionnés pour les diplômés du Master Génie Logiciel et Administration Réseau ?","Architectes logiciels, ingénieurs en recherche et développement, responsables des systèmes d'information, consultants en technologies de l'information, ou directeurs de projets informatiques.","ESTM_002_C001","ESTM_002_C001; ESTM_020_C001; ESTM_005_C001; ESTM_004_C001; ESTM_024_C001","1","1","1","1,0","134","256","False","eos","True","Les débouchés professionnels mentionnés pour les diplômés du Master Génie Logiciel et Administration Réseau incluent :
+
+1. Architectes logiciels
+2. Ingénieurs en recherche et développement
+3. Responsables des systèmes d'information
+4. Consultants en technologies de l'information
+5. Directeurs de projets informatiques
+
+Il est important de noter que ces débouchés correspondent spécifiquement à la filière Master Génie Logiciel et Administration Réseau, qui se concentre sur la conception, le développement, le déploiement et la maintenance des systèmes informatiques.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q007","formation","easy","Combien coûtent les frais d'inscription et la scolarité annuelle du Master Génie Logiciel et Administration Réseau ?","Frais d'inscription : 200 000 F CFA. Scolarité annuelle : 1 200 000 F CFA, soit 120 000 F CFA par mois.","ESTM_002_C001","ESTM_002_C001; ESTM_020_C001; ESTM_003_C001; ESTM_005_C001; ESTM_025_C001","1","1","1","1,0","79","256","False","eos","True","Selon le contexte documentaire fourni, les frais d'inscription pour le Master Génie Logiciel et Administration Réseau sont de 200 000 FCFA, tandis que la scolarité annuelle est de 1 200 000 FCFA, soit 120 000 FCFA par mois.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q008","formation","easy","Quelles sont les dates de rentrée prévues pour le Master Génie Logiciel et Administration Réseau en 2026-2027 ?","Master 1 : janvier 2027. Master 2 : février 2027.","ESTM_002_C001","ESTM_002_C001; ESTM_020_C001; ESTM_005_C001; ESTM_004_C001; ESTM_003_C001","1","1","1","1,0","58","256","False","eos","True","Les dates de rentrée prévues pour le Master Génie Logiciel et Administration Réseau en 2026-2027 sont :
+
+- Master 1 : janvier 2027
+- Master 2 : février 2027","HIT_AT_5__EOS","yes","","","","","","",""
+"Q009","formation","easy","Le Master Génie Logiciel et Administration Réseau est-il accessible à distance ?","Oui, le Master est disponible en cours du soir et également accessible en ligne (Master en ligne).","ESTM_002_C001","ESTM_002_C001; ESTM_020_C001; ESTM_005_C001; ESTM_004_C001; ESTM_024_C001","1","1","1","1,0","70","256","False","eos","True","Non, le Master Génie Logiciel et Administration Réseau n'est pas accessible à distance selon le contexte documentaire fourni. Le texte mentionne seulement que le Master en ligne est également accessible à distance, mais il ne précise pas que le Master Génie Logiciel et Administration Réseau lui-même est accessible à distance.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q010","admission_registration","medium","Quelles sont les étapes de la procédure d'inscription au Master Génie Logiciel et Administration Réseau ?","Étape 1 : préparer le dossier (lettre au Directeur des études, photos d'identité, copie diplôme, extrait de naissance, CNI ou passeport, relevés de notes L1-L2-L3). Étape 2 : soumettre le dossier en ligne via candidat.estm.sn, par email à inscription@estm.edu.sn, ou physiquement au campus du Point E. Étape 3 : entretien pédagogique, puis inscription définitive après validation.","ESTM_002_C001; ESTM_002_C002","ESTM_002_C001; ESTM_020_C001; ESTM_005_C001; ESTM_004_C001; ESTM_025_C001","1","1","1","1,0","256","256","True","max_new_tokens","False","Les étapes de la procédure d'inscription au Master Génie Logiciel et Administration Réseau sont les suivantes :
+
+1. Préparation du dossier d'inscription :
+   - Lettre de demande d'inscription adressée au Directeur des études
+   - Deux photos d'identité (1 photo si dépôt en ligne)
+   - Copie légalisée du dernier diplôme
+   - Extrait de naissance
+   - Copie de la CNI pour les candidats sénégalais
+   - Copie du passeport pour les étudiants internationaux
+   - Relevés de notes de la Licence 1, de la Licence 2 et de la Licence 3
+
+2. Soumission du dossier :
+   - Dossiers d'inscription peuvent être soumis :
+     - En ligne via : candidat.estm.sn — cliquez sur le bouton « Préinscription » ci-dessous
+     - Par e-mail à : inscription@estm.edu.sn
+     - Physiquement, sur notre campus situé au Point E, sur l'avenue Cheikh Anta Diop, en face de l'hôpital Fann
+
+3. Entretien pédagogique","HIT_AT_5__MAX_NEW_TOKENS","yes","yes","partially_correct","partial","grounded","direct","truncation","Les étapes 1 et 2 sont correctement couvertes et l'étape 3 est commencée, mais la réponse s'arrête après la mention de l'entretien pédagogique sans couvrir explicitement l'inscription définitive. La limite de 256 tokens affecte donc la complétude."
+"Q011","formation","medium","Quels domaines de compétences sont développés dans le Master Génie Logiciel et Administration Réseau ?","Développement logiciel, programmation web et mobile, gestion de bases de données, architecture logicielle, administration des systèmes et réseaux, virtualisation, supervision et sécurisation des infrastructures, développement web full stack, programmation orientée objet, API et services.","ESTM_002_C001","ESTM_002_C001; ESTM_020_C001; ESTM_005_C001; ESTM_024_C001; ESTM_004_C001","1","1","1","1,0","256","256","True","max_new_tokens","False","Les domaines de compétences développés dans le Master Génie Logiciel et Administration Réseau comprennent :
+
+1. Développement logiciel
+2. Programmation web et mobile
+3. Gestion de bases de données
+4. Architecture logicielle
+5. Administration des systèmes et réseaux
+6. Virtualisation
+7. Supervision des systèmes réseau
+8. Sécurité des réseaux et applications
+9. Administration et supervision des services réseau
+10. Technologies de télécommunications modernes
+11. Cybersécurité des réseaux et des applications
+12. 5G
+13. Virtualisation des réseaux
+14. Internet des objets
+15. Cybersecurité des infrastructures industrielles
+16. Digitalisation des réseaux électriques
+17. Optimisation des systèmes énergétiques
+18. Conception et intégration des systèmes électriques et énergétiques
+19. Automatisation industrielle
+20. Analyse des données énergétiques
+21. Programmation Python
+22. Gestion de projets complexes
+23.","HIT_AT_5__MAX_NEW_TOKENS","yes","yes_but_complete","partially_correct","complete","partially_grounded","direct","overgeneration","Les principaux domaines attendus sont tous présents dans la réponse avant la coupure. La réponse ajoute toutefois de nombreux éléments qui ne correspondent pas aux compétences attendues de cette formation et termine sur une liste incomplète. La couverture de la réponse de référence est néanmoins déjà assurée."
+"Q012","formation","easy","Quel est l'objectif principal du Master Big Data et Intelligence Artificielle de l'ESTM ?","Former des cadres supérieurs capables de répondre aux défis liés à l'analyse de données massives et à l'intelligence artificielle, avec des compétences techniques et transversales adaptées à l'évolution des technologies et aux besoins de l'industrie.","ESTM_003_C001","ESTM_003_C001; ESTM_009_C001; ESTM_013_C001; ESTM_018_C001; ESTM_002_C001","1","1","1","1,0","61","256","False","eos","True","L'objectif principal du Master Big Data et Intelligence Artificielle de l'ESTM est de former des cadres supérieurs capables de répondre aux défis actuels liés à l'analyse de données massives et à l'intelligence artificielle.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q013","formation","medium","Le Master Big Data et Intelligence Artificielle propose-t-il une rentrée en Master 2 pour l'année 2026-2027 ?","Non, seule la rentrée de Master 1 est annoncée (janvier 2027). Aucune date de rentrée en Master 2 n'est mentionnée pour cette formation.","ESTM_003_C001","ESTM_003_C001; ESTM_002_C001; ESTM_026_C001; ESTM_025_C001; ESTM_004_C001","1","1","1","1,0","47","256","False","eos","True","Non, le Master Big Data et Intelligence Artificielle ne propose pas de rentrée en Master 2 pour l'année 2026-2027 selon le contexte documentaire fourni.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q014","admission_registration","easy","Par quels moyens peut-on soumettre un dossier d'inscription au Master Big Data et Intelligence Artificielle ?","En ligne via candidat.estm.sn, par mail à inscription@estm.edu.sn, ou physiquement au campus du Point E, avenue Cheikh Anta Diop, en face de l'hôpital Fann.","ESTM_003_C001","ESTM_003_C001; ESTM_025_C001; ESTM_026_C001; ESTM_002_C001; ESTM_004_C001","1","1","1","1,0","256","256","True","max_new_tokens","False","Pour soumettre un dossier d'inscription au Master Big Data & Intelligence Artificielle, il faut suivre ces étapes :
+
+1. Préparation du dossier d'inscription :
+   - Lettre de demande d'inscription adressée au Directeur des études
+   - Deux (2) photos d'identité
+   - Copie légalisée du dernier diplôme
+   - Extrait de naissance
+   - Copie de la CNI pour les Sénégalais
+   - Copie du passeport pour les étudiants internationaux
+   - Relevés de notes de la Licence 1, 2 et 3
+
+2. Soumission du dossier :
+   - En ligne via : http://candidat.estm.sn/
+   - Par mail à : inscription@estm.edu.sn
+   - Physiquement : dans notre campus situé au Point E sur l'Avenue Cheikh Anta DIOP en face de l'hôpital FANN
+
+3. Entretien pédagogique et inscription définitive :
+   Si le dossier est validé, vous serez convoqué pour passer un entretien pédagogique. Une fois l'entretien effectué et","HIT_AT_5__MAX_NEW_TOKENS","yes","yes_but_complete","correct","complete","grounded","direct","none","Les trois moyens de soumission demandés sont tous explicitement fournis : en ligne, par e-mail et physiquement. La réponse est ensuite interrompue pendant des informations procédurales supplémentaires qui ne sont pas nécessaires pour répondre à la question."
+"Q015","formation","medium","Quelles compétences spécialisées sont développées dans le Master Sécurité des Systèmes d'Information ?","Conception de politiques de sécurité, gestion des risques, détection des intrusions, cryptographie, audit et conformité des systèmes d'information, utilisation d'outils avancés pour identifier, évaluer et contrer les menaces.","ESTM_004_C001","ESTM_004_C001; ESTM_002_C001; ESTM_023_C001; ESTM_005_C001; ESTM_024_C001","1","1","1","1,0","124","256","False","eos","True","Les compétences spécifiques développées dans le Master Sécurité des Systèmes d'Information comprennent :
+
+1. Conception de politiques de sécurité
+2. Gestion des risques
+3. Détection des intrusions
+4. Cryptographie
+5. Audit et conformité des systèmes d'information
+
+Cette formation se concentre sur la protection des systèmes d'information contre les cybermenaces et les attaques informatiques, en réponse à la nécessité croissante de sécurité des données dans un monde où ces menaces sont omniprésentes.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q016","admission_registration","easy","Quelles sont les conditions d'accès au Master Sécurité des Systèmes d'Information ?","Le Master en cours du soir est ouvert aux titulaires d'une licence en informatique ou dans des domaines similaires.","ESTM_004_C001","ESTM_004_C001; ESTM_002_C001; ESTM_023_C001; ESTM_005_C001; ESTM_019_C001","1","1","1","1,0","256","256","True","max_new_tokens","False","Les conditions d'accès au Master Sécurité des Systèmes d'Information sont les suivantes :
+
+1. La filière est ouverte aux titulaires d'une licence en informatique ou dans des domaines similaires.
+
+2. Il existe deux options de cursus disponibles :
+   - Master en cours du soir : ouvert aux titulaires d'une licence en informatique, en génie logiciel, en réseaux et télécommunications ou dans un domaine équivalent.
+   - Master en ligne : la formation est également accessible à distance.
+
+3. Les dates des prochaines rentrées sont fixées pour l'année académique 2026-2027 :
+   - Master 1 : Janvier 2027
+   - Master 2 : Février 2027
+
+4. Le coût de la formation comprend :
+   - Frais d'inscription : 200 000 F CFA
+   - Scolarité annuelle : 1 200 000 F CFA, soit 120 000 F CFA par mois
+
+5. Pour s'inscrire, il faut :
+   - Pré","HIT_AT_5__MAX_NEW_TOKENS","yes","yes_but_complete","partially_correct","complete","partially_grounded","direct","unsupported_claim","La condition principale attendue est correctement mentionnée, mais la réponse ajoute une seconde modalité de cursus en ligne qui n'est pas étayée par le chunk de référence et présente ensuite des informations supplémentaires. La coupure n'empêche pas de donner la condition principale."
+"Q017","formation","easy","Quand sont prévues les rentrées du Master Sécurité des Systèmes d'Information pour 2026-2027 ?","Master 1 : janvier 2027. Master 2 : février 2027.","ESTM_004_C001","ESTM_004_C001; ESTM_002_C001; ESTM_023_C001; ESTM_005_C001; ESTM_019_C001","1","1","1","1,0","122","256","False","eos","True","La rentrée du Master Sécurité des Systèmes d'Information prévu pour 2026-2027 se déroulera en deux sessions distinctes :
+
+1. **Session 1** : Janvier 2027
+2. **Session 2** : Février 2027
+
+Il est important de noter que ces dates peuvent varier légèrement selon les options choisies (cours du jour ou cours du soir), mais elles correspondent généralement à la période de rentrée habituelle pour ce type de formation.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q018","formation","medium","Quelles technologies émergentes sont abordées dans le Master Télécommunications et Réseaux ?","La 5G, la virtualisation des réseaux, la cybersécurité, la fibre optique, la téléphonie sur IP, les réseaux mobiles, les infrastructures virtuelles, les réseaux sans fil avancés et l'Internet des objets.","ESTM_005_C001","ESTM_005_C001; ESTM_002_C001; ESTM_019_C001; ESTM_001_C001; ESTM_004_C001","1","1","1","1,0","148","256","False","eos","True","Selon le contexte documentaire fourni, les technologies émergentes abordées dans le Master Télécommunications et Réseaux comprennent :
+
+1. La 5G
+2. Le cloud
+3. L'Internet des objets
+4. Les systèmes connectés
+5. La virtualisation des réseaux
+6. La cybersécurité
+
+Il est important de noter que ces technologies sont mentionnées spécifiquement dans le contexte de la description de la filière du Master Télécommunications et Réseaux, mais elles sont généralement considérées comme des tendances actuelles et importantes dans le secteur des télécommunications et des réseaux.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q019","career","medium","Dans quels types de fonctions les dipl?m?s du Master T?l?communications et R?seaux peuvent-ils intervenir ?","Ils peuvent intervenir dans la d?finition de strat?gies r?seau, le pilotage de projets t?l?coms, la recherche et d?veloppement, le conseil en r?seaux avanc?s ou la direction technique.","ESTM_005_C001","ESTM_005_C001; ESTM_019_C001; ESTM_002_C001; ESTM_027_C001; ESTM_004_C001","1","1","1","1,0","241","256","False","eos","True","Les diplômés du Master Télécommunications et Réseaux peuvent intervenir dans divers types de fonctions liées à la conception, au déploiement, à l'administration et à la sécurisation des infrastructures de télécommunications et des réseaux informatiques. Ces fonctions incluent :
+
+1. Définition de stratégies réseau
+2. Pilotage de projets télécoms
+3. Recherche et développement
+4. Conseil en réseaux avancés
+5. Direction technique
+
+En plus de ces fonctions spécifiques, ils peuvent également contribuer à d'autres domaines tels que :
+
+6. Architecture des réseaux
+7. Supervision des services réseau
+8. Cybersecurité des réseaux
+9. Technologie de télécommunications moderne
+10. Virtualisation des réseaux
+11. Internet des objets
+12. 5G
+13. Technologies de surveillance et de contrôle des infrastructures
+
+Cette flexibilité leur permet de jouer un rôle crucial dans le développement et la mise en œuvre de nouvelles technologies et pratiques dans différents secteurs industriels et commerciaux.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q020","admission_registration","easy","Quels profils de licence sont admis au Master Télécommunications et Réseaux ?","Les titulaires d'une licence en télécommunications, réseaux, informatique ou dans un domaine scientifique et technologique équivalent.","ESTM_005_C001","ESTM_005_C001; ESTM_019_C001; ESTM_002_C001; ESTM_020_C001; ESTM_001_C001","1","1","1","1,0","60","256","False","eos","True","Selon le contexte documentaire fourni, il n'y a aucune mention spécifique concernant les profils de licence admis au Master Télécommunications et Réseaux. Le contexte ne donne aucun détail sur les profils spécifiques requis pour accéder à ce master.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q021","formation","easy","Quelles formations sont proposées à distance par l'ESTM en Sciences et Technologies ?","Seule la Licence Génie logiciel et Réseaux (ex Téléinformatique - Bac+3) est explicitement mentionnée dans le programme Sciences et Technologies en formation à distance.","ESTM_006_C001","ESTM_006_C001; ESTM_009_C001; ESTM_001_C001; ESTM_013_C001; ESTM_018_C001","1","1","1","1,0","256","256","True","max_new_tokens","False","Selon le contexte documentaire fourni, l'ESTM propose plusieurs formations à distance dans les Sciences et Technologies, notamment :
+
+1. Formation Sciences et Technologies (programme général)
+   - Licence Génie logiciel et Réseaux (ex Téléinformatique - Bac+3)
+   - Licence Communication, Informatique et Multimédia (Bac+3)
+   - Licence Génie Électrique et Energies Renouvelables (Bac+3)
+   - Master Big data & Intelligence artificielle (Bac+5)
+   - Master Monétique et Transactions Sécurisées (Bac+5)
+   - Master Sécurité des Systèmes d'Information (Bac+5)
+   - Master Télécommunications et Réseaux (Bac+5)
+   - Master Génie Électrique et Énergies Renouvelables (Bac+5)
+
+2. Programme Management - Communication (programme spécifique)
+   - Master Ingénierie des Ressources Humaines (Bac+5)
+   - Master Management de projets et Innovation (Bac+5)
+   - Master Marketing-Communication (Bac+5)
+
+Il n'y a pas de","HIT_AT_5__MAX_NEW_TOKENS","yes","yes_but_complete","partially_correct","partial","partially_grounded","direct","overgeneration","La Licence Génie logiciel et Réseaux, qui constitue la réponse attendue, est bien mentionnée. La réponse ajoute cependant plusieurs autres formations à distance qui ne correspondent pas à la réponse de référence et transforme le programme en une liste beaucoup plus large. La coupure n'est pas la cause principale de cette déformation."
+"Q022","formation","medium","Le programme Management-Communication est-il proposé en formation à distance à l'ESTM ?","Le programme est mentionné avec sa description générale, mais aucune filière spécifique n'est listée pour la formation à distance en Management-Communication.","ESTM_006_C001","ESTM_009_C001; ESTM_027_C001; ESTM_006_C001; ESTM_018_C001; ESTM_013_C001","0","1","3","0,3333333333333333","50","256","False","eos","True","Non, le programme Management-Communication n'est pas mentionné directement dans le contexte documentaire fourni. Le contexte documentaire ne donne aucune indication concernant cette formation proposée en formation à distance à l'ESTM.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q023","admission_registration","easy","Quels documents faut-il fournir pour la préinscription en ligne à l'ESTM ?","La demande d'inscription, le relevé de notes du BAC, une copie légalisée du dernier diplôme, un extrait de naissance (pièce d'état civil), et la copie de la CNI ou du passeport.","ESTM_007_C001","ESTM_005_C002; ESTM_002_C002; ESTM_024_C002; ESTM_007_C001; ESTM_009_C001","0","1","4","0,25","227","256","False","eos","True","Pour la préinscription en ligne à l'ESTM, il faut fournir :
+
+- Document personnel : Extrait de naissance
+- Document officiel : Copie de la CNI pour les candidats sénégalais
+- Document scolaire : Copie du passeport pour les étudiants internationaux
+- Document scolaire : Relevés de notes de la Licence 1, de la Licence 2 et de la Licence 3
+- Dossier d'inscription : Lettre de demande d'inscription adressée au Directeur des études
+- Dossier d'inscription : Deux photos d'identité (1photo si dépôt en ligne)
+- Dossier d'inscription : Copie légalisée du dernier diplôme
+- Dossier d'inscription : Extrait de naissance
+- Dossier d'inscription : Copie de la CNI ou passeport pour les étudiants internationaux
+- Dossier d'inscription : Relevés de notes de la Licence 1, de la Licence 2 et de la Licence 3","HIT_AT_5__EOS","yes","","","","","","",""
+"Q024","admission_registration","medium","Le formulaire de préinscription de l'ESTM demande-t-il si l'étudiant souhaite une formation à distance ?","Oui, le processus de préinscription inclut la question « Voulez-vous suivre une formation à distance ? ».","ESTM_007_C001","ESTM_007_C001; ESTM_005_C002; ESTM_024_C002; ESTM_009_C001; ESTM_002_C002","1","1","1","1,0","78","256","False","eos","True","Oui, selon le contexte documentaire fourni, le formulaire de préinscription de l'ESTM demande si l'étudiant souhaite suivre une formation à distance. Le texte mentionne clairement ""Voulez-vous suivre une formation à distance ?"", ce qui indique que cette option est proposée aux futurs étudiants lors de la préinscription.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q025","general_estm","easy","Quelles sont les coordonnées téléphoniques de l'ESTM ?","+221 33 825 28 89 et +221 71 062 00 55.","ESTM_008_C001","ESTM_009_C001; ESTM_018_C001; ESTM_005_C002; ESTM_011_C001; ESTM_013_C001","0","0","6","0,16666666666666666","60","256","False","eos","True","Le contexte documentaire fourni ne contient aucune information spécifique concernant les coordonnées téléphoniques de l'ESTM (École Supérieure de Technologie et de Management). Il ne donne pas de numéros de téléphone officiels de l'école.","MISS_AT_5__EOS","no","none","incorrect","insufficient","grounded","direct","retrieval_miss","Le chunk pertinent ESTM_008_C001 est classé au rang 6 et n'est donc pas présent dans le top-5. Le contexte transmis au générateur ne contient effectivement pas les numéros de téléphone demandés. Le modèle s'abstient alors de fournir une information non présente dans le contexte et indique explicitement qu'il ne peut pas répondre à partir des documents fournis. La réponse ne satisfait donc pas la demande finale, mais elle ne présente pas d'hallucination manifeste et constitue un comportement prudent face à un échec de retrieval."
+"Q026","general_estm","easy","Quelle est l'adresse email générale de contact de l'ESTM ?","estm@estm.edu.sn","ESTM_008_C001","ESTM_009_C001; ESTM_018_C001; ESTM_005_C002; ESTM_013_C001; ESTM_011_C001","0","0","7","0,14285714285714285","22","256","False","eos","True","L'adresse email générale de contact de l'ESTM est inscription@estm.edu.sn.","MISS_AT_5__EOS","no","none","incorrect","insufficient","partially_grounded","partly_relevant","retrieval_miss","Le chunk pertinent ESTM_008_C001 est classé au rang 6 et n'est donc pas présent dans le top-5. Le contexte contient toutefois l'adresse inscription@estm.edu.sn dans ESTM_005_C002, où elle est indiquée comme adresse de soumission des dossiers d'inscription. Le générateur reprend cette adresse mais l'attribue à tort comme adresse email générale de contact de l'ESTM. La réponse est donc incorrecte et seulement partiellement grounded. Le cas illustre un échec de retrieval accompagné d'une mauvaise attribution du rôle d'une information pourtant présente dans le contexte."
+"Q027","general_estm","easy","Qui est le Directeur Général de l'ESTM ?","M. Ousmane B. A. DIENE.","ESTM_009_C001","ESTM_009_C001; ESTM_018_C001; ESTM_013_C001; ESTM_011_C001; ESTM_005_C002","1","1","1","1,0","26","256","False","eos","True","Le Directeur Général de l'ESTM est M. Ousmane B. A. DIENE.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q028","general_estm","medium","Comment l'ESTM se présente-t-elle sur le plan institutionnel ?","L'ESTM se présente comme une école d'Ingénieurs et de Spécialistes du Management à la pointe des dernières technologies, avec un corps professoral expérimenté, des partenariats internationaux privilégiés, et une mission d'accompagnement des étudiants dans leur insertion professionnelle et leur carrière.","ESTM_009_C001","ESTM_009_C001; ESTM_018_C001; ESTM_013_C001; ESTM_011_C001; ESTM_005_C002","1","1","1","1,0","198","256","False","eos","True","L'ESTM se présente sur le plan institutionnel comme une école multi-compétences, dotée d'un corps professoral très expérimenté. Elle cultive la passion, l'excellence, le savoir pratique et le professionnalisme. L'école est engagée dans l'insertion professionnelle des étudiants, soutenant également leur construction d'une belle carrière. Ses alumni représentent plus de 4 500 diplômés répartis dans plus de 20 pays, créant un vaste réseau universitaire. L'ESTM offre divers services aux alumni, notamment pour aider à l'embauche, à acquérir une expertise spécifique, à préparer une installation dans un autre pays, et à participer à des recherches doctorales. Elle encourage également les étudiants à participer à des projets entrepreneuriaux et à former des clubs associatifs pour favoriser la vie associative.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q029","general_estm","easy","Où se trouve le siège social de l'ESTM ?","Dakar, avenue Cheikh Anta Diop, en face de l'hôpital Fann.","ESTM_009_C001","ESTM_009_C001; ESTM_018_C001; ESTM_011_C001; ESTM_013_C001; ESTM_005_C002","1","1","1","1,0","57","256","False","eos","True","Selon le contexte documentaire fourni, le siège social de l'ESTM (École Supérieure de Technologie et de Management) se trouve à Dakar, avenue Cheikh Anta DIOP en face de l'hôpital FANN.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q030","formation","easy","Quelles certifications professionnelles sont proposées en formation continue par l'ESTM ?","Certification PMP (gestion de projets), Certification CAPM, CCNA Cisco (réseaux), Certified Professional Scrum Master, et Lead Cybersecurity Manager.","ESTM_010_C001","ESTM_009_C001; ESTM_013_C001; ESTM_010_C001; ESTM_018_C001; ESTM_025_C001","0","1","3","0,3333333333333333","256","256","True","max_new_tokens","False","Selon le contexte documentaire fourni :
+
+La formation continue proposée par l'ESTM comprend plusieurs certifications professionnelles :
+
+1. Certification PMP (Project Management Professional)
+   - Nombre de places : 25
+   - Formation en ligne
+   - Session en cours
+   - Examen inclut examen PMI
+
+2. Certification CAPM (Certified Associate in Project Management)
+   - Nombre de places : 20
+   - Formation en ligne
+   - Session en cours
+   - Examen inclut examen PMI
+
+3. Certificat CCNA (Cisco Certified Network Associate)
+   - Nombre de places : 15
+   - Formation en ligne ou en présentiel
+   - Session en cours
+   - Coût : 400 000 FCFA
+
+4. Certificat Certified Professional Scrum Master
+   - Nombre de places : 20
+   - Formation en ligne
+   - Session en cours
+   - Coût : 800 000 FCFA
+
+5. Certificat Lead Cybersecurity Manager
+   - Nombre de places : 20
+   - Formation en ligne ou en présentiel
+   - Session en cours","HIT_AT_5__MAX_NEW_TOKENS","yes","yes_but_complete","correct","complete","grounded","direct","none","Les cinq certifications attendues sont toutes identifiées avant la coupure, y compris Lead Cybersecurity Manager. La limite intervient ensuite dans la description détaillée et n'empêche donc pas de répondre à la question."
+"Q031","formation","easy","Combien de places sont disponibles pour la certification PMP à l'ESTM ?","25 places.","ESTM_010_C001","ESTM_010_C001; ESTM_009_C001; ESTM_013_C001; ESTM_018_C001; ESTM_025_C001","1","1","1","1,0","30","256","False","eos","True","Selon le contexte documentaire fourni :
+
+La formation PMP offerte par l'ESTM dispose de 25 places disponibles.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q032","formation","medium","Quels sont les tarifs de la certification CCNA Cisco selon le profil du candidat ?","Étudiant : 400 000 F CFA. Professionnel : 800 000 F CFA. Entreprise : 1 000 000 F CFA.","ESTM_010_C001","ESTM_010_C001; ESTM_019_C001; ESTM_010_C002; ESTM_020_C001; ESTM_005_C001","1","1","1","1,0","36","256","False","eos","True","Selon le contexte documentaire fourni :
+
+Le coût de la certification CCNA Cisco pour un candidat est de 400 000 FCFA.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q033","formation","easy","Quelle est la durée de la formation Certified Professional Scrum Master à l'ESTM ?","2 jours.","ESTM_010_C001","ESTM_010_C001; ESTM_009_C001; ESTM_026_C001; ESTM_025_C001; ESTM_002_C001","1","1","1","1,0","22","256","False","eos","True","La durée de la formation Certified Professional Scrum Master à l'ESTM est de 2 jours.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q034","formation","easy","Quel est le coût total de la formation Lead Cybersecurity Manager incluant la certification ?","900 000 F CFA (formation + certification).","ESTM_010_C001","ESTM_010_C001; ESTM_010_C002; ESTM_004_C001; ESTM_019_C001; ESTM_002_C001","1","1","1","1,0","29","256","False","eos","True","Le coût total de la formation Lead Cybersecurity Manager incluant la certification est de 900 000 F CFA.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q035","formation","medium","Que couvre la norme ISO/CEI 27032 abordée dans la formation Lead Cybersecurity Manager ?","Elle met l'accent sur le rôle des différentes sécurités dans le cyberespace (sécurité de l'information, sécurité des réseaux et de l'Internet, protection des infrastructures d'information essentielles) et permet d'élaborer un cadre de politique identifiant les processus les plus vulnérables aux cyberattaques.","ESTM_010_C002","ESTM_010_C002; ESTM_010_C001; ESTM_019_C001; ESTM_004_C001; ESTM_020_C001","1","1","1","1,0","125","256","False","eos","True","La norme ISO/CEI 27032 couvre le rôle des différentes sécurités dans le cyber-espace, en particulier en ce qui concerne la sécurité de l'information, la sécurité des réseaux et Internet, et la protection des infrastructures d'information essentielles. Elle permet également aux professionnels d'élaborer un cadre de politique qui identifie les processus les plus vulnérables aux cyberattaques et prend en compte ces vulnérabilités pour éviter que les entreprises et les clients ne soient exposés aux risques.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q036","formation","easy","Les examens de certification PMP et CAPM sont-ils inclus dans les formations proposées par l'ESTM ?","Oui, l'examen au PMI est inclus pour les deux certifications (PMP et CAPM).","ESTM_010_C001","ESTM_010_C001; ESTM_009_C001; ESTM_013_C001; ESTM_018_C001; ESTM_025_C001","1","1","1","1,0","36","256","False","eos","True","Non, les examens de certification PMP et CAPM ne sont pas inclus dans les formations proposées par l'ESTM selon le contexte documentaire fourni.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q037","formation","medium","Qui sont les formateurs de la certification PMP à l'ESTM ?","Ousmane FAYE et Dirk DOPPELFELD, décrits comme des experts émérites reconnus au sein du Project Management Institute.","ESTM_010_C001","ESTM_010_C001; ESTM_009_C001; ESTM_013_C001; ESTM_018_C001; ESTM_026_C001","1","1","1","1,0","31","256","False","eos","True","Les formateurs de la certification PMP à l'ESTM sont Ousmane FAYE et Dirk DOPPELFELD.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q038","student_life","easy","Quels types d'activités sont organisés par l'Amicale des étudiants de l'ESTM ?","Week-end d'intégration, journées d'intégration, journées culturelles et afterworks.","ESTM_011_C001","ESTM_011_C001; ESTM_018_C001; ESTM_013_C001; ESTM_009_C001; ESTM_005_C002","1","1","1","1,0","256","256","True","max_new_tokens","False","L'Amicale des étudiants de l'ESTM organise plusieurs types d'activités :
+
+1. Week-end d'intégration
+2. Journées d'intégration
+3. Journées culturelles
+4. Afterworks
+5. Activités sportives (comme le football)
+6. Ateliers et conférences
+7. Brunchs
+8. Débats et discussions
+9. Séminaires
+10. Congrès
+11. Conférences
+12. Semaines de préparation aux concours
+13. Projets entrepreneuriaux
+14. Sessions d'examen
+15. Visites d'établissements étrangers
+16. Ateliers de développement personnel
+17. Ateliers de cuisine
+18. Ateliers de santé environnementale
+19. Ateliers de sciences
+20. Ateliers de technologie
+21. Ateliers de programmation
+22. Ateliers de graphisme
+23. Ateliers de photographie
+24. Ateliers de danse
+25. Ateliers de théâtre","HIT_AT_5__MAX_NEW_TOKENS","yes","yes_but_complete","partially_correct","complete","partially_grounded","direct","overgeneration","Les quatre activités attendues sont bien citées dès le début : week-end d'intégration, journées d'intégration, journées culturelles et afterworks. La réponse ajoute ensuite de nombreuses autres activités qui ne sont pas attribuées de manière sûre à l'Amicale dans la référence. La coupure intervient après que les éléments principaux ont déjà été fournis."
+"Q039","general_estm","easy","Combien de nationalités sont représentées parmi les étudiants de l'ESTM ?","Plus de 22 nationalités.","ESTM_011_C001","ESTM_018_C001; ESTM_009_C001; ESTM_013_C001; ESTM_011_C001; ESTM_005_C002","0","1","4","0,25","112","256","False","eos","True","Selon le contexte documentaire fourni, il n'y a aucune information spécifique concernant le nombre exact de nationalités représentées parmi les étudiants de l'ESTM. Le texte mentionne simplement que ""plus de 4 500 diplômés répartis dans plus de 20 pays à travers le monde"", sans préciser combien de nationalités constituent cette population totale. Donc, on ne peut pas répondre précisément à la question demandée à partir du contexte fourni.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q040","student_life","medium","En quoi consistait l'Opération Kilos organisée par le club Humanitatis de l'ESTM ?","Activité organisée le 18 décembre 2022 pour venir en aide aux plus démunis. Une collecte de vivres et vêtements a été réalisée durant 3 jours, destinée aux pensionnaires du Daara Omar Foutiyou Tall de Pikine.","ESTM_011_C001","ESTM_011_C001; ESTM_018_C001; ESTM_009_C001; ESTM_025_C001; ESTM_013_C001","1","1","1","1,0","117","256","False","eos","True","L'Opération Kilos organisée par le club Humanitatis de l'ESTM avait pour but de venir en aide aux plus démunis. Elle avait lieu le dimanche 18 décembre 2022 et avait pour objectif de collecter vivres, vêtements, etc., pendant trois jours. Ces dons étaient destinés aux pensionnaires du Daara Omar Foutiyou Tall de Pikine. La remise de ces dons a eu lieu en présence des responsables dudit Daara et des membres du club.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q041","student_life","medium","À quel réseau est affilié le club Humanitatis de l'ESTM ?","Le réseau des clubs de l'Agence Universitaire de la Francophonie.","ESTM_011_C001","ESTM_011_C001; ESTM_018_C001; ESTM_009_C001; ESTM_025_C001; ESTM_012_C001","1","1","1","1,0","31","256","False","eos","True","Le club Humanitatis de l'ESTM est affilié au réseau des clubs de l'Agence Universitaire de la Francophonie.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q042","student_life","easy","Quels clubs étudiants existent à l'ESTM ?","Clava Sciencia, Club Multimédia, Club Humanitatis, Club d'anglais, Club cuisine et Club Découverte.","ESTM_012_C001","ESTM_009_C001; ESTM_018_C001; ESTM_011_C001; ESTM_013_C001; ESTM_005_C002","0","0","9","0,1111111111111111","109","256","False","eos","True","Selon le contexte documentaire fourni :
+
+1. Il existe plusieurs clubs étudiants à l'ESTM, dont :
+   - Club Humanitatis (affilié au réseau des clubs de l'Agence Universitaire de la Francophonie)
+   - Club Scientifique de l'ESTM
+   - Club Clava Scientia (affilié au réseau des clubs étudiants)
+
+Il n'y a pas d'autres informations fournies concernant les autres clubs étudiants à l'ESTM.","MISS_AT_5__EOS","no","none","partially_correct","partial","grounded","direct","retrieval_miss","Le chunk pertinent ESTM_012_C001 est classé au rang 9 et n'est donc pas présent dans le top-5. Le contexte récupéré contient néanmoins plusieurs informations relatives aux clubs étudiants, notamment dans ESTM_011_C001 : Club Humanitatis, Club Scientifique et Club Clava Scientia. La réponse reprend correctement ces éléments mais omet plusieurs clubs présents dans le chunk de vérité terrain, notamment le Club Multimédia, le Club d'anglais, le Club cuisine et le Club Découverte. Le cas illustre un échec de retrieval conduisant à une réponse partielle mais factuellement ancrée dans le contexte disponible."
+"Q043","student_life","easy","Quel est le rôle de l'incubateur de l'ESTM ?","L'incubateur accompagne les étudiants dans la réalisation de leurs projets entrepreneuriaux, dans le cadre de la mission d'insertion professionnelle de l'ESTM.","ESTM_013_C001","ESTM_013_C001; ESTM_009_C001; ESTM_018_C001; ESTM_011_C001; ESTM_005_C002","1","1","1","1,0","75","256","False","eos","True","Le rôle de l'incubateur de l'ESTM est de permettre à plus d'une vingtaine d'étudiants de participer à des concours nationaux et internationaux tels que le GAINDE START UP CHALLENGE, le JIGUEEN TECH, le concours de HUAWEI et bien d'autres.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q044","student_life","medium","À quels concours les étudiants de l'incubateur de l'ESTM ont-ils participé ?","Le Gainde Start Up Challenge, le Jigueen Tech, le concours de Huawei, et d'autres concours nationaux et internationaux.","ESTM_013_C001","ESTM_013_C001; ESTM_009_C001; ESTM_018_C001; ESTM_011_C001; ESTM_005_C002","1","1","1","1,0","118","256","False","eos","True","Selon le contexte documentaire fourni, les étudiants de l'incubateur de l'ESTM ont participé à plusieurs concours nationaux et internationaux. Parmi ceux-ci figurent :
+
+1. Le GAINDE START UP CHALLENGE
+2. Le JIGUEEN TECH
+3. Concours de HUAWEI
+
+Ces concours sont mentionnés directement dans le contexte documentaire, précisant ainsi que plus d'une vingtaine d'étudiants ont participé à ces événements.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q045","student_life","easy","Combien de projets ont été incubés à l'ESTM ?","Plus d'une dizaine de projets.","ESTM_013_C001","ESTM_013_C001; ESTM_009_C001; ESTM_018_C001; ESTM_011_C001; ESTM_026_C001","1","1","1","1,0","51","256","False","eos","True","Selon le contexte documentaire fourni :
+
+Plus d'une dizaine projets ont été incubés à l'ESTM grâce à un accompagnement technique et pédagogique, à des voyages d'étude et aux partenaires.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q046","international","easy","Dans quels pays se trouvent les écoles et universités partenaires de l'ESTM ?","France, Belgique, Italie, Ukraine, Kazakhstan, Sénégal, Niger, Togo, Bulgarie et Royaume-Uni.","ESTM_014_C001","ESTM_009_C001; ESTM_018_C001; ESTM_014_C001; ESTM_013_C001; ESTM_011_C001","0","1","3","0,3333333333333333","86","256","False","eos","True","Selon le contexte documentaire fourni, les écoles et universités partenaires de l'ESTM (École Supérieure de Technologie et de Management) se trouvent principalement en France, en Belgique, en Italie, en Ukraine, en Bulgarie, et en Royaume-Uni. Il n'y a pas de mention spécifique de pays dans les autres documents fournis.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q047","international","medium","Quels documents sont requis pour effectuer un semestre d'échange entrant à l'ESTM ?","Contrat d'études signé, relevés de notes des 2 dernières années, certificat d'inscription de l'école ou université d'origine, certificat de fin de la dernière classe, certificat de langue (Français B2 / Anglais B2) et copie du passeport valide.","ESTM_015_C001","ESTM_015_C001; ESTM_018_C001; ESTM_009_C001; ESTM_005_C002; ESTM_002_C002","1","1","1","1,0","174","256","False","eos","True","Selon le contexte documentaire fourni, pour effectuer un semestre d'échange entrant à l'ESTM, il faut :
+
+1. Un contrat d'études signé
+2. Des relevés de notes des 2 dernières années
+3. Un certificat d'inscription de l'école ou université d'origine
+4. Un certificat de fin de la dernière classe
+5. Un certificat de langue (Français B2 / Anglais : B2)
+6. Une copie du passeport valide
+
+Il n'est pas mentionné qu'il y ait nécessairement d'autres documents supplémentaires, mais ceux-ci couvrent généralement les documents requis pour obtenir une admission à l'ESTM lors d'un semestre d'échange entrant.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q048","international","easy","Quel niveau de langue est exigé pour une mobilité entrante à l'ESTM ?","Français B2 et Anglais B2.","ESTM_015_C001","ESTM_015_C001; ESTM_009_C001; ESTM_018_C001; ESTM_013_C001; ESTM_005_C002","1","1","1","1,0","157","256","False","eos","True","Selon le contexte documentaire fourni, pour une mobilité entrante à l'ESTM, il est exigé :
+
+1. Un contrat d'études signé
+2. Relevés de notes des 2 dernières années
+3. Certificat d'inscription de l'école ou université d'origine
+4. Certificat de fin de la dernière classe
+5. Certificat de langue (pour les langues françaises et anglaises)
+6. Copie du passeport valide
+
+Il n'y a pas mentionné spécifiquement un niveau de langue spécifique, mais plutôt qu'il s'agit de ""certificat de langue"" qui inclut les niveaux français B2 et anglais B2.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q049","international","easy","Qui est la personne à contacter pour les questions de mobilité internationale à l'ESTM ?","Mme Anna SAR, responsable des mobilités, joignable par email (anna.sar@estm.edu.sn) et par téléphone (+221 78 129 27 27).","ESTM_015_C001","ESTM_009_C001; ESTM_018_C001; ESTM_015_C001; ESTM_011_C001; ESTM_013_C001","0","1","3","0,3333333333333333","128","256","False","eos","True","Selon le contexte documentaire fourni, la personne à contacter pour les questions de mobilité internationale à l'ESTM est :
+
+Mme. Anna SAR
+Email : anna.sar@estm.edu.sn
+Téléphone : +221 78 129 27 27
+
+Cet email et ce numéro de téléphone figurent dans la section ""Comment effectuer votre semestre ou année d'échange"", où on trouve les informations spécifiques concernant les démarches nécessaires pour obtenir une mobilité internationale à l'ESTM.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q050","international","medium","Quelle est la première condition à remplir pour effectuer un échange entrant à l'ESTM ?","Il faut être nommé par son école ou université d'origine.","ESTM_015_C001","ESTM_015_C001; ESTM_018_C001; ESTM_009_C001; ESTM_005_C002; ESTM_013_C001","1","1","1","1,0","38","256","False","eos","True","La première condition à remplir pour effectuer un échange entrant à l'ESTM est de vous être nommé par votre école ou université d'origine.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q051","career","medium","Quels types de postes ont été proposés lors des événements Job Dating de l'ESTM ?","Responsable Innovation, Acheteur, Assistant achats, Business Developer et Responsable Comptable.","ESTM_016_C001","ESTM_016_C001; ESTM_018_C001; ESTM_013_C001; ESTM_009_C001; ESTM_005_C002","1","1","1","1,0","84","256","False","eos","True","Selon le contexte documentaire fourni, lors des événements Job Dating de l'ESTM, des postes ont été proposés dans plusieurs domaines :
+
+1. Responsable Innovation
+2. Achat
+3. Business Developer
+4. Responsable Comptable
+
+Il n'y avait pas de mention spécifique de postes dans les autres domaines mentionnés dans le contexte.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q052","career","easy","Quand ont été publiées les offres de Job Dating sur la page stages et emplois de l'ESTM ?","Les offres sont datées du 8 novembre 2023.","ESTM_016_C001","ESTM_016_C001; ESTM_009_C001; ESTM_005_C002; ESTM_018_C001; ESTM_013_C001","1","1","1","1,0","81","256","False","eos","True","Les offres de Job Dating ont été publiées sur la page stages et emplois de l'ESTM à partir de la date indiquée dans le contexte :
+
+SOCIUM 08-11-2023
+
+Cela signifie qu'elles ont été mises en ligne entre le 8 et le 11 novembre 2023.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q053","general_estm","easy","Combien de diplômés compte le réseau Alumni de l'ESTM et dans combien de pays sont-ils présents ?","Plus de 4 500 diplômés répartis dans plus de 20 pays à travers le monde.","ESTM_018_C001","ESTM_018_C001; ESTM_009_C001; ESTM_011_C001; ESTM_013_C001; ESTM_005_C002","1","1","1","1,0","45","256","False","eos","True","Selon le contexte documentaire fourni :
+
+Le réseau Alumni de l'ESTM compte environ 4 500 diplômés répartis dans plus de 20 pays à travers le monde.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q054","general_estm","easy","Qui est le Directeur des Études de l'ESTM ?","M. Félix CAMPAL.","ESTM_018_C001","ESTM_009_C001; ESTM_018_C001; ESTM_013_C001; ESTM_011_C001; ESTM_005_C002","0","1","2","0,5","254","256","False","eos","True","Selon le contexte documentaire fourni :
+
+Le Directeur des Études de l'ESTM est Félix Campal. Il est cité directement dans l'énoncé suivant :
+
+""Nouveau bureau des alumni Previous Next Le réseau des alumni de l'ESTM, une grande famille Les Alumni de l’ESTM, ce sont plus de 4 500 diplômés répartis dans plus de 20 pays à travers le monde. C’est donc un vaste réseau donc, qui a un point commun : notre Université. À travers des souvenirs, des anecdotes, des événements marquants de la vie étudiante comme les sessions d'examen, ou encore d’autres soirées plus festives, nous sommes tous liés. Le travail, aujourd'hui, consiste à renforcer ces liens et à oser parcourir les distances qui nous séparent. Les buts sont variés : recherche d’un emploi, besoin d’une expertise spécialisée dans un domaine propre, conseils pour une installation dans un pays étranger, aide à la recherche doctorale, recherche d’orateurs dans le cadre de séminaires,... les possibilités sont infinies !""","HIT_AT_5__EOS","yes","","","","","","",""
+"Q055","general_estm","easy","Quel site web est dédié aux anciens étudiants de l'ESTM ?","alumni.estm.sn","ESTM_018_C001","ESTM_018_C001; ESTM_009_C001; ESTM_013_C001; ESTM_005_C002; ESTM_011_C001","1","1","1","1,0","35","256","False","eos","True","Selon le contexte documentaire fourni, le site web dédié aux anciens étudiants de l'ESTM est alumni.estm.sn.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q056","general_estm","medium","Quelle est l'origine étymologique du terme « alumni » selon la page de l'ESTM ?","Le terme dérive du verbe latin « alere » qui signifie « nourrir, alimenter, fortifier ».","ESTM_018_C001","ESTM_018_C001; ESTM_011_C001; ESTM_009_C001; ESTM_013_C001; ESTM_005_C002","1","1","1","1,0","46","256","False","eos","True","Selon la page de l'ESTM, l'origine étymologique du terme « alumni » est le verbe latin alere, qui signifie « nourrir, alimenter, fortifier ».","HIT_AT_5__EOS","yes","","","","","","",""
+"Q057","formation","easy","Quelle est la durée de la Licence en Télécommunications, Réseaux et Cybersécurité en cours du jour ?","3 ans, à raison de 9 mois par année académique.","ESTM_019_C001","ESTM_019_C001; ESTM_020_C001; ESTM_005_C001; ESTM_021_C001; ESTM_004_C001","1","1","1","1,0","38","256","False","eos","True","La durée de la Licence en Télécommunications, Réseaux et Cybersécurité en cours du jour est de 3 ans, selon le contexte documentaire fourni.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q058","admission_registration","easy","Quelles conditions d'admission s'appliquent à la licence professionnelle en Télécommunications, Réseaux et Cybersécurité ?","Accessible aux titulaires d'un diplôme de niveau Bac+2 dans le domaine ou dans une spécialité équivalente. Durée : 1 an (10 mois).","ESTM_019_C001","ESTM_019_C001; ESTM_020_C001; ESTM_005_C001; ESTM_004_C001; ESTM_021_C001","1","1","1","1,0","112","256","False","eos","True","Les conditions d'admission pour la licence professionnelle en Télécommunications, Réseaux et Cybersécurité sont :
+
+- Accessible aux titulaires d'un baccalauréat des séries scientifiques ou techniques.
+- Durée : 3 ans, en raison de 9 mois par année académique.
+- Durée : 1 an (10 mois).
+- Accessible aux titulaires d'un diplôme de niveau Bac+2 dans le domaine ou dans une spécialité équivalente.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q059","formation","easy","La Licence Télécommunications, Réseaux et Cybersécurité est-elle reconnue par le CAMES ?","Oui, le diplôme est accrédité par l'ANAQ-Sup et reconnu par le CAMES.","ESTM_019_C001","ESTM_019_C001; ESTM_005_C001; ESTM_020_C001; ESTM_021_C001; ESTM_004_C001","1","1","1","1,0","71","256","False","eos","True","Non, la Licence Télécommunications, Réseaux et Cybersécurité n'est pas mentionnée directement comme étant reconnue par le CAMES dans le contexte fourni. Le contexte fournit plusieurs options de licences et masters en télécommunication et réseaux, mais elle ne fait aucun référence spécifique à cette licence particulière.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q060","formation","easy","Quelles sont les dates de rentrée pour la Licence Télécommunications, Réseaux et Cybersécurité en 2026-2027 ?","2e et 3e années (cours du jour) : 14 octobre 2026. 1re année (cours du jour) : 12 novembre 2026. Licence professionnelle (cours du soir) : 13 janvier 2027.","ESTM_019_C001","ESTM_019_C001; ESTM_005_C001; ESTM_020_C001; ESTM_004_C001; ESTM_022_C002","1","1","1","1,0","104","256","False","eos","True","Les dates de rentrée pour la Licence Télécommunications, Réseaux et Cybersécurité en 2026-2027 sont :
+
+- 2e et 3e années (cours du jour) : 14 octobre 2026
+- 1re année (cours du jour) : 12 novembre 2026
+- Licence professionnelle (cours du soir) : 13 janvier 2027","HIT_AT_5__EOS","yes","","","","","","",""
+"Q061","formation","medium","Quels domaines de compétences couvre la Licence Génie logiciel et Réseaux ?","Algorithmique, programmation, développement web et mobile, bases de données, génie logiciel, architecture des systèmes, administration des serveurs, configuration des réseaux, virtualisation et fondamentaux de la cybersécurité.","ESTM_020_C001","ESTM_020_C001; ESTM_002_C001; ESTM_019_C001; ESTM_005_C001; ESTM_006_C001","1","1","1","1,0","143","256","False","eos","True","La Licence Génie logiciel et Réseaux couvre les domaines suivants de compétences :
+
+1. Algorithmique et Programmation
+2. Développement Web et Mobile
+3. Bases de Données
+4. Génie Logiciel
+5. Architecture des Systèmes
+6. Administration des Serveurs
+7. Configuration des Réseaux
+8. Virtualisation
+9. Fondamentaux de la Cybersécurité
+
+Ces compétences sont essentielles pour concevoir, développer, déployer et maintenir des applications informatiques, ainsi que pour installer et gérer les infrastructures système et réseaux.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q062","admission_registration","medium","Les titulaires d'un baccalauréat L2 peuvent-ils accéder à la Licence Génie logiciel et Réseaux ?","Oui, la licence en cours du jour est accessible aux titulaires d'un baccalauréat des séries scientifiques, techniques ou L2.","ESTM_020_C001","ESTM_020_C001; ESTM_002_C001; ESTM_019_C001; ESTM_001_C001; ESTM_006_C001","1","1","1","1,0","158","256","False","eos","True","Non, les titulaires d'un baccalauréat L2 ne peuvent pas accéder directement à la Licence Génie logiciel et Réseaux (ex Téléinformatique - Bac+3), même si elles ont suivi une formation correspondante à l'échelon supérieur. Selon le contexte documentaire fourni, il est spécifié que la Licence Génie logiciel et Réseaux est accessible aux titulaires d'un baccalauréat des séries scientifiques, techniques ou L2. Une fois qu'une personne a obtenu un baccalauréat L2, elle doit passer par une autre étape de certification ou d'accès spécifique avant d'être admise à cette licence.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q063","formation","easy","La Licence Génie logiciel et Réseaux propose-t-elle une licence professionnelle en cours du soir ?","Oui, une licence professionnelle en cours du soir d'une durée de 10 mois, accessible aux titulaires d'un diplôme Bac+2 dans le domaine ou spécialité équivalente.","ESTM_020_C001","ESTM_020_C001; ESTM_002_C001; ESTM_019_C001; ESTM_022_C001; ESTM_022_C002","1","1","1","1,0","26","256","False","eos","True","Non, la Licence Génie logiciel et Réseaux ne propose pas de licence professionnelle en cours du soir.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q064","career","medium","Quels sont les débouchés professionnels de la Licence Communication, Informatique et Multimédia ?","Agences de communication, entreprises du num?rique, services informatiques ou de communication, m?dias et structures sp?cialis?es dans la production multim?dia.","ESTM_021_C001","ESTM_021_C001; ESTM_019_C001; ESTM_001_C001; ESTM_020_C001; ESTM_027_C001","1","1","1","1,0","155","256","False","eos","True","Les débouchés professionnels de la Licence Communication, Informatique et Multimédia incluent :
+
+1. Des opportunités d'intégrer des agences de communication.
+2. Des possibilités d'occuper des postes dans des entreprises du numérique.
+3. Des emplois dans les services informatiques ou de communication.
+4. Des possibilités de travailler dans des médias.
+5. Des opportunités de se spécialiser dans la production multimédia.
+6. Possibilités de poursuivre ses études en Master.
+
+Cette formation permet aux étudiants de maîtriser les aspects techniques et créatifs nécessaires à la réalisation de produits et de services numériques innovants.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q065","formation","medium","Quelle modalit? de formation est explicitement indiqu?e pour la Licence Communication, Informatique et Multim?dia ?","La Licence Communication, Informatique et Multim?dia est explicitement propos?e en cours du jour, sur 3 ans, ? raison de 9 mois par ann?e acad?mique.","ESTM_021_C001","ESTM_021_C001; ESTM_019_C001; ESTM_027_C001; ESTM_020_C001; ESTM_001_C001","1","1","1","1,0","63","256","False","eos","True","La seule mention spécifique de formation proposée pour la Licence Communication, Informatique et Multimédia est :
+
+""Formations disponibles: Licence Communication, Informatique et Multimédia en cours du jour""
+
+Ce format est indiqué comme étant accessible aux titulaires d'un bac+3.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q066","formation","medium","Quel est le statut d'accréditation de la Licence Communication, Informatique et Multimédia ?","L'accréditation du diplôme est en cours au niveau de l'ANAQ-Sup.","ESTM_021_C001","ESTM_021_C001; ESTM_019_C001; ESTM_020_C001; ESTM_001_C001; ESTM_027_C001","1","1","1","1,0","33","256","False","eos","True","La Licence Communication, Informatique et Multimédia possède une accréditation en cours au niveau de l'ANAQ-Sup.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q067","admission_registration","easy","Quels types de baccalauréat permettent d'accéder à la Licence Communication, Informatique et Multimédia ?","Le baccalauréat de toutes séries, sous réserve de répondre aux conditions d'admission de l'établissement.","ESTM_021_C001","ESTM_021_C001; ESTM_019_C001; ESTM_001_C001; ESTM_027_C001; ESTM_006_C001","1","1","1","1,0","86","256","False","eos","True","Selon le contexte documentaire fourni, il n'est pas mentionné directement combien de types de baccalauréat sont requis pour accéder à la Licence Communication, Informatique et Multimédia. Le texte principal se concentre plutôt sur les formations existantes proposées par l'établissement, sans spécifier les exigences minimales pour entrer dans cette licence spécifique.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q068","formation","medium","Quelles technologies d'énergies renouvelables sont couvertes par la Licence Génie Électrique et Énergies Renouvelables ?","L'énergie solaire photovoltaïque et thermique, l'énergie éolienne et l'énergie hydraulique.","ESTM_022_C001","ESTM_022_C001; ESTM_024_C001; ESTM_020_C001; ESTM_001_C001; ESTM_006_C001","1","1","1","1,0","124","256","False","eos","True","La Licence Génie Électrique et Énergies Renouvelables couvre les technologies suivantes :
+
+1. **Technologies énergétiques renouvelables** :
+   - **Energie solaire photovoltaïque**
+   - **Energie éolienne**
+   - **Energie hydraulique**
+
+Ces technologies sont spécifiquement mentionnées dans le contexte documentaire comme étant intégrées à la formation, ce qui confirme que ces technologies sont couvertes par la Licence Génie Électrique et Énergies Renouvelables.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q069","career","medium","Quels secteurs professionnels peuvent accueillir les diplômés de la Licence Génie Électrique et Énergies Renouvelables ?","Les secteurs de l'énergie, de l'industrie, du bâtiment, de la maintenance électrique, des bureaux d'études et des énergies renouvelables, ou la poursuite en Master.","ESTM_022_C001","ESTM_022_C001; ESTM_024_C001; ESTM_020_C001; ESTM_001_C001; ESTM_028_C001","1","1","1","1,0","256","256","True","max_new_tokens","False","Les diplômés de la Licence Génie Électrique et Énergies Renouvelables peuvent accueillir les secteurs suivants :
+
+1. Secteur de l'énergie : Ils peuvent intégrer les entreprises de production, distribution et utilisation d'énergie, y compris les centrales électriques, les usines d'énergie solaire, les installations hydroélectriques et les centres d'énergie renouvelable.
+
+2. Secteur de l'industrie : Ils peuvent travailler dans les usines de fabrication d'équipements électriques, les laboratoires de recherche en génie électrique et les fabricants de composants électroniques.
+
+3. Secteur du bâtiment : Ils peuvent occuper des postes de conseil, de direction ou de chef de projet dans les entreprises de construction et de maintenance des bâtiments.
+
+4. Secteur de la maintenance électrique : Ils peuvent travailler dans les services de maintenance et d'entretien des installations électriques, y compris les réseaux de distribution et les installations domestiques.
+
+5. Secteur des bureaux d'études : Ils peuvent rejoindre les cabinets d'études spécialisés dans l'énergie","HIT_AT_5__MAX_NEW_TOKENS","yes","yes","partially_correct","partial","grounded","direct","truncation","Les secteurs de l'énergie, de l'industrie, du bâtiment, de la maintenance électrique et des bureaux d'études sont correctement fournis, mais la réponse s'arrête avant les énergies renouvelables et la possibilité de poursuivre en Master. La limite affecte directement la complétude."
+"Q070","admission_registration","easy","Quelles séries de baccalauréat permettent d'accéder à la Licence Génie Électrique et Énergies Renouvelables ?","Le baccalauréat scientifique ou technique.","ESTM_022_C001","ESTM_022_C001; ESTM_024_C001; ESTM_001_C001; ESTM_006_C001; ESTM_020_C001","1","1","1","1,0","128","256","False","eos","True","Selon le contexte documentaire fourni, il n'y a aucune mention spécifique de séries de baccalauréat permettant d'accéder directement à la Licence Génie Électrique et Énergies Renouvelables. Cependant, on peut noter que cette formation est accessible aux titulaires d'un baccalauréat scientifique ou technique. Si vous cherchez à accéder à cette formation sans avoir un bac +3, vous devrez probablement suivre une autre option de formation plus basée sur le bac +2 ou plus basique.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q071","formation","medium","Quelles compétences sont développées dans le Master Monétique et Transactions Sécurisées ?","Conception, développement et gestion des systèmes de paiement électronique, sécurité des transactions, normes de paiement, gestion des risques et conformité réglementaire.","ESTM_023_C001","ESTM_023_C001; ESTM_004_C001; ESTM_002_C001; ESTM_026_C001; ESTM_005_C001","1","1","1","1,0","107","256","False","eos","True","Les compétences développées dans le Master Monétique et Transactions Sécurisées comprennent :
+
+1. Conception, développement et gestion des systèmes de paiement électronique.
+2. Connaissances approfondies en matière de sécurité des transactions, de normes de paiement, de gestion des risques et de conformité réglementaire.
+3. Capacités à traiter les défis liés à la gestion des transactions financières dans un environnement numérique en constante évolution.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q072","admission_registration","easy","Quelles conditions d'admission s'appliquent au Master Monétique et Transactions Sécurisées ?","Le Master en cours du soir est ouvert aux titulaires d'une licence en informatique, en gestion ou dans des domaines similaires.","ESTM_023_C001","ESTM_023_C001; ESTM_004_C001; ESTM_026_C001; ESTM_002_C001; ESTM_027_C001","1","1","1","1,0","256","256","True","max_new_tokens","False","Selon le contexte documentaire fourni, les conditions d'admission au Master Monétique et Transactions Sécurisées sont les suivantes :
+
+1. L'apprenti doit avoir obtenu un Bac+5.
+
+2. Il peut être titulaire d'un bac en informatique, en gestion ou dans des domaines similaires.
+
+3. Il peut être inscrit à l'un des programmes suivants :
+   - Master en cours du soir
+   - Master en ligne
+
+4. Les dates des prochaines rentrées sont Janvier 2027 pour le Master 1 et Février 2027 pour le Master 2.
+
+5. Le coût total de la formation comprend :
+   - Frais d'inscription : 200 000 F CFA
+   - Scolarité annuelle : 1 200 000 F CFA soit 120 000 F CFA par mois
+
+6. Pour s'inscrire, il faut :
+   - Préparer son dossier d'inscription
+   - Soumettre son dossier
+   - Participer à l'entretien pédagogique et obtenir une inscription définitive","HIT_AT_5__MAX_NEW_TOKENS","yes","yes_but_complete","partially_correct","partial","partially_grounded","direct","unsupported_claim","La réponse évoque correctement le domaine informatique et la gestion, mais déforme le niveau requis en parlant de Bac+5 puis de bac en informatique ou gestion. Ces affirmations ne correspondent pas à la condition de référence, qui porte sur une licence. La coupure intervient ensuite et n'explique donc pas l'erreur principale."
+"Q073","formation","easy","Quels sont les deux parcours proposés dans le Master Génie Électrique et Énergies Renouvelables ?","Le parcours Systèmes Électriques et Énergies Renouvelables (S2ER) et le parcours Systèmes et Réseaux Énergétiques Intelligents (SREI).","ESTM_024_C001","ESTM_024_C001; ESTM_022_C001; ESTM_002_C001; ESTM_026_C001; ESTM_001_C001","1","1","1","1,0","205","256","False","eos","True","Les deux parcours proposés dans le Master Génie Électrique et Énergies Renouvelables sont :
+
+1. Parcours Systèmes Électriques et Énergies Renouvelables (S2ER)
+   - Centré sur la conception et l'intégration des systèmes électriques, l'électronique de puissance, le dimensionnement des installations photovoltaïques et éoliennes, la simulation ainsi que la protection des réseaux électriques.
+
+2. Parcours Systèmes et Réseaux Énergétiques Intelligents (SREI)
+   - Orienté vers la digitalisation et la sécurisation des réseaux énergétiques intelligents, l'automatisation industrielle, les systèmes SCADA, la norme IEC 61850, la cybersécurité OT et IoT, l'analyse des données énergétiques et la programmation Python.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q074","formation","medium","Quels outils professionnels sont enseignés dans le parcours S2ER du Master Génie Électrique ?","DIgSILENT et ETAP.","ESTM_024_C001","ESTM_024_C001; ESTM_022_C001; ESTM_002_C001; ESTM_004_C001; ESTM_023_C001","1","1","1","1,0","58","256","False","eos","True","Selon le contexte documentaire fourni, dans le parcours S2ER du Master Génie Électrique et Énergies Renouvelables, les outils professionnels enseignés comprennent :
+
+- DIgSILENT
+- ETAP","HIT_AT_5__EOS","yes","","","","","","",""
+"Q075","formation","medium","Quels thèmes sont abordés dans le parcours SREI du Master Génie Électrique et Énergies Renouvelables ?","Digitalisation et sécurisation des réseaux énergétiques intelligents, automatisation industrielle, systèmes SCADA, norme IEC 61850, cybersécurité OT et IoT, analyse des données énergétiques et programmation Python.","ESTM_024_C001","ESTM_024_C001; ESTM_022_C001; ESTM_001_C001; ESTM_005_C001; ESTM_002_C001","1","1","1","1,0","156","256","False","eos","True","Selon le contexte documentaire fourni, le parcours SREI du Master Génie Électrique et Énergies Renouvelables aborde les thèmes suivants :
+
+1. Digitalisation et sécurisation des réseaux énergétiques intelligents
+2. Automatisation industrielle
+3. Systèmes SCADA
+4. Norme IEC 61850
+5. Cybersécurité OT et IoT
+6. Analyse des données énergétiques
+7. Programmation Python
+
+Ces thèmes sont spécifiquement mentionnés dans le contexte documentaire pour le parcours SREI du Master Génie Électrique et Énergies Renouvelables.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q076","career","medium","Quels métiers sont accessibles après le Master Génie Électrique et Énergies Renouvelables ?","Ingénieurs d'études en énergies renouvelables, ingénieurs en conception de centrales photovoltaïques, éoliennes ou hybrides, ingénieurs Smart Grid, ingénieurs SCADA, spécialistes en cybersécurité des systèmes énergétiques, consultants en performance énergétique, ou chefs de projets en énergie digitale.","ESTM_024_C001","ESTM_024_C001; ESTM_022_C001; ESTM_002_C001; ESTM_001_C001; ESTM_005_C001","1","1","1","1,0","183","256","False","eos","True","Les métiers accessibles après le Master Génie Électrique et Énergies Renouvelables comprennent :
+
+1. Ingénieur d'études en énergies renouvelables
+2. Ingénieur en conception de centrales photovoltaïques
+3. Ingénieur en conception d'éoliennes
+4. Ingénieur en conception de systèmes hybrides
+5. Ingénieur Smart Grid
+6. Ingénieur en cybersécurité des systèmes énergétiques
+7. Consultant en performance énergétique
+8. Chef de projets en énergie digitale
+
+Ces métiers sont spécifiquement mentionnés dans le contexte documentaire fourni, reflétant les domaines d'intervention principaux du Master Génie Électrique et Énergies Renouvelables.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q077","admission_registration","medium","Quels sont les prérequis pour accéder au Master 2 Génie Électrique et Énergies Renouvelables ?","L'accès au Master 2 est conditionné par la validation des 60 crédits du Master 1.","ESTM_024_C001","ESTM_024_C001; ESTM_022_C001; ESTM_002_C001; ESTM_026_C001; ESTM_025_C001","1","1","1","1,0","111","256","False","eos","True","Les prérequis pour accéder au Master 2 Génie Électrique et Énergies Renouvelables sont :
+
+1. Titulaire d'une licence en énergie, en électricité, en génie électrique, en électrotechnique, en sciences physiques ou dans un domaine équivalent.
+
+2. Validation des 60 crédits du Master 1.
+
+Il n'est pas mentionné dans le contexte documentaire spécifique à quelle autre formation précédente peut être nécessaire pour atteindre ces critères.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q078","formation","easy","Quels sont les frais de scolarité du Master Ingénierie des Ressources Humaines ?","Frais d'inscription : 200 000 F CFA (M1 et M2). Scolarité annuelle : 900 000 F CFA, soit 90 000 F CFA par mois.","ESTM_025_C001","ESTM_025_C001; ESTM_026_C001; ESTM_003_C001; ESTM_002_C001; ESTM_001_C001","1","1","1","1,0","45","256","False","eos","True","Selon le contexte documentaire fourni, les frais de scolarité annuel pour le Master Ingénierie des Ressources Humaines sont de 900 000 FCFA.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q079","formation","medium","Quelles compétences sont développées dans le Master Ingénierie des Ressources Humaines ?","Recrutement, gestion des carrières, gestion de la formation, gestion administrative du personnel et gestion des relations sociales.","ESTM_025_C001","ESTM_025_C001; ESTM_002_C001; ESTM_026_C001; ESTM_024_C001; ESTM_001_C001","1","1","1","1,0","150","256","False","eos","True","Selon le contexte documentaire fourni, les compétences développées dans le Master Ingénierie des Ressources Humaines comprennent :
+
+1. Concevoir, mettre en œuvre et superviser des politiques RH adaptées aux besoins des entreprises.
+2. Développer des compétences en recrutement.
+3. Gérer les carrières.
+4. Gérer la formation.
+5. Gérer administrativement le personnel.
+6. Gérer les relations sociales.
+
+Il n'est pas mentionné spécifiquement comment ces compétences sont développées dans le programme, mais il est clair qu'ils sont essentiels pour le métier d'ingénieur en ressources humaines.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q080","admission_registration","medium","Comment les candidats résidant à l'étranger sont-ils informés de l'acceptation de leur candidature au Master IRH ?","Les candidats se trouvant à l'extérieur du Sénégal reçoivent un mail d'acceptation.","ESTM_025_C001","ESTM_025_C001; ESTM_027_C001; ESTM_026_C001; ESTM_002_C002; ESTM_015_C001","1","1","1","1,0","27","256","False","eos","True","Les candidats résidant à l'étranger sont informés de l'acceptation de leur candidature par email.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q081","formation","easy","Quelles compétences acquièrent les étudiants du Master Management de Projets et Innovation ?","Gestion de projet, management de l'innovation, analyse des risques, gestion des équipes et communication.","ESTM_026_C001","ESTM_026_C001; ESTM_010_C001; ESTM_002_C001; ESTM_013_C001; ESTM_025_C001","1","1","1","1,0","256","256","True","max_new_tokens","False","Les étudiants du Master Management de Projets et Innovation acquièrent les compétences suivantes :
+
+1. **Gestion de Projet** : Apprendre à planifier, organiser, coordonner et piloter des projets dans divers secteurs d'activité.
+
+2. **Management de l'Innovation** : Développer des compétences en innovation stratégique et en mise en œuvre des initiatives innovantes.
+
+3. **Analyse des Risques** : Acquérir les connaissances nécessaires pour identifier, analyser et gérer les risques liés aux projets.
+
+4. **Gestion des Equipes** : Maîtriser les techniques de gestion des équipes pour optimiser la productivité et la satisfaction des employés.
+
+5. **Communication** : Développer des compétences en communication interne et externe pour faciliter la collaboration et l'échange d'informations.
+
+6. **Compréhension des Concepts de Base de la Gestion de Projet** : Comprendre les principes fondamentaux de la gestion de projet, y compris la planification, l'organisation, la coordination et la supervision.
+
+7. **Préparation et Participation à des","HIT_AT_5__MAX_NEW_TOKENS","yes","yes_but_complete","correct","complete","grounded","direct","none","Les cinq compétences attendues sont toutes présentes avant la limite : gestion de projet, management de l'innovation, analyse des risques, gestion des équipes et communication. La suite est interrompue pendant des informations complémentaires et répétitives, sans perte des éléments essentiels."
+"Q082","formation","easy","Quel est le coût de la scolarité annuelle du Master Management de Projets et Innovation ?","900 000 F CFA, soit 90 000 F CFA par mois (M1 et M2). Frais d'inscription : 200 000 F CFA.","ESTM_026_C001","ESTM_026_C001; ESTM_010_C001; ESTM_025_C001; ESTM_003_C001; ESTM_002_C001","1","1","1","1,0","32","256","False","eos","True","Le coût de la scolarité annuelle du Master Management de Projets et Innovation est de 90 000 FCFA par mois.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q083","formation","medium","Quels domaines de compétences sont couverts par le Master Marketing-Communication ?","Marketing, communication, gestion de la marque, études de marché, marketing digital et relations publiques.","ESTM_027_C001","ESTM_027_C001; ESTM_005_C001; ESTM_021_C001; ESTM_002_C001; ESTM_026_C001","1","1","1","1,0","256","256","True","max_new_tokens","False","Le Master Marketing-Communication couvre les domaines suivants de compétences :
+
+1. Marketing stratégique
+2. Marketing digital
+3. Communication d'entreprise
+4. Conception et mise en œuvre de stratégies de marketing
+5. Gestion de la marque
+6. Études de marché
+7. Marketing digital
+8. Relations publiques
+9. Technologies de télécommunications modernes
+10. Virtualisation des réseaux
+11. Cybersécurité des communications numériques
+12. Développement de réseaux et infrastructure informatiques
+13. Sécurisation des infrastructures informatiques
+14. Gestion des systèmes d'information
+15. Architecture logicielle
+16. Supervision des systèmes d'information
+17. Administration des systèmes d'information
+18. Gestion des ressources humaines
+19. Communication interne
+20. Stratégies de communication
+21. Création de contenu新媒体
+22. Gestion de contenu
+23. Production de contenu multimédia
+24. Gestion de projets numériques
+25. Conduite de projets num","HIT_AT_5__MAX_NEW_TOKENS","yes","yes_but_complete","partially_correct","complete","partially_grounded","direct","overgeneration","Les six domaines attendus sont présents dès les premières lignes, mais la réponse ajoute ensuite de nombreux domaines liés aux réseaux, à la cybersécurité et aux systèmes d'information qui ne correspondent pas au référentiel de cette formation. La limite n'empêche donc pas la couverture des éléments attendus."
+"Q084","admission_registration","easy","Quels profils de licence sont admis au Master Marketing-Communication ?","Les titulaires d'une licence du domaine ou de tout autre domaine similaire.","ESTM_027_C001","ESTM_027_C001; ESTM_021_C001; ESTM_028_C001; ESTM_005_C001; ESTM_019_C001","1","1","1","1,0","95","256","False","eos","True","Selon le contexte documentaire fourni :
+
+Les profils de licence admis au Master Marketing-Communication sont :
+
+1. Licenciés en Communication, Informatique et Multimédia (Bac+3)
+2. Licenciés en Sciences de gestion (avec 6 spécialisations - Bac+3)
+
+Il n'y a pas mentionné de profils spécifiques de licence pour le Master Marketing-Communication directement dans ce contexte.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q085","formation","easy","Quelles spécialisations sont proposées en troisième année de la Licence Sciences de gestion ?","Management de projets et Entrepreneuriat, Marketing-Communication, Marketing digital, Banque-Assurance, Gestion des ressources humaines et Transport-Logistique.","ESTM_028_C001","ESTM_028_C001; ESTM_001_C001; ESTM_006_C001; ESTM_020_C001; ESTM_019_C001","1","1","1","1,0","113","256","False","eos","True","En troisième année de la Licence Sciences de gestion, les étudiants peuvent choisir entre plusieurs spécialisations. Elles incluent :
+
+1. **Management de projets et Entrepreneuriat**
+2. **Marketing-Communication**
+3. **Marketing digital**
+4. **Banque-Assurance**
+5. **Gestion des ressources humaines**
+6. **Transport-Logistique**
+
+Ces spécialisations permettent aux étudiants d'approfondir leurs compétences et de construire un projet professionnel adapté à leurs ambitions.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q086","formation","medium","Comment est organisé le cursus de la Licence Sciences de gestion sur les trois années ?","Les deux premières années sont organisées autour d'un tronc commun en management et découverte des domaines de l'entreprise. En troisième année, les étudiants choisissent une spécialisation parmi six options.","ESTM_028_C001","ESTM_028_C001; ESTM_001_C001; ESTM_006_C001; ESTM_020_C001; ESTM_019_C001","1","1","1","1,0","245","256","False","eos","True","Le cursus de la Licence Sciences de gestion sur les trois années est organisé comme suit :
+
+1. **Première Année** :
+   - **Tronc Commun** : Cette année est consacrée à l'apprentissage des fondamentaux essentiels en management et à la découverte des principaux domaines de l'entreprise.
+
+2. **Deuxième Année** :
+   - **Tronc Commun** : Continuation de l'apprentissage des fondamentaux en management et exploration des principaux domaines de l'entreprise.
+
+3. **Troisième Année** :
+   - **Choix de la Spécialisation** : Les étudiants choisissent une spécialisation qui s'inscrit dans leur parcours professionnel. Par exemple, ils peuvent choisir entre ""Management de projets et Entrepreneuriat"", ""Marketing-Communication"", etc., selon leurs intérêts et aspirations professionnelles.
+
+Cette structure permet aux étudiants de développer une vision globale de l'entreprise tout en se préparant à intégrer le marché du travail ou à poursuivre leurs études en Master.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q087","admission_registration","easy","Quelles conditions d'admission s'appliquent à la licence professionnelle en Sciences de gestion ?","Accessible aux titulaires d'un diplôme de niveau Bac+2 dans le domaine de la gestion, du commerce, de la comptabilité, de la finance ou dans une spécialité équivalente. Durée : 10 mois.","ESTM_028_C001","ESTM_028_C001; ESTM_001_C001; ESTM_025_C001; ESTM_020_C001; ESTM_006_C001","1","1","1","1,0","107","256","False","eos","True","Selon le contexte documentaire fourni, les conditions d'admission pour la licence professionnelle en Sciences de gestion en cours du soir comprennent :
+
+1. Titulaire d'un diplôme de niveau Bac+2 dans le domaine de la gestion, du commerce, de la comptabilité, de la finance ou dans une spécialité équivalente.
+
+Cette condition s'applique aux personnes ayant obtenu un bac+2 dans ces domaines, sans restriction spécifique liée à la série du bac.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q088","formation","medium","Quels domaines d'enseignement composent la Licence Sciences de gestion ?","Comptabilité, finance, marketing, management, économie, droit des affaires, gestion des ressources humaines et contrôle de gestion.","ESTM_028_C001","ESTM_028_C001; ESTM_001_C001; ESTM_006_C001; ESTM_020_C001; ESTM_025_C001","1","1","1","1,0","76","256","False","eos","True","La réponse basée sur le contexte documentaire fournie est que la Licence Sciences de gestion comporte 6 spécialisations, dont certaines incluent Marketing-Communication, Gestion des ressources humaines, etc. Ces spécialisations permettent aux étudiants d'approfondir leurs compétences et de construire un projet professionnel adapté à leurs ambitions.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q089","admission_registration","medium","Je voudrais me réorienter vers la gestion après un BTS en comptabilité, est-ce possible à l'ESTM ?","Oui, la licence professionnelle en Sciences de gestion (cours du soir, 10 mois) est accessible aux titulaires d'un diplôme Bac+2 dans le domaine de la gestion, du commerce, de la comptabilité, de la finance ou dans une spécialité équivalente.","ESTM_028_C001","ESTM_009_C001; ESTM_018_C001; ESTM_013_C001; ESTM_005_C002; ESTM_025_C001","0","0","6","0,16666666666666666","113","256","False","eos","True","Non, il n'est pas possible de se réorienter vers la gestion après un BTS en comptabilité à l'ESTM. Selon le contexte documentaire fourni, l'ESTM est une école d'ingénieurs et de spécialistes du management, non spécialisé en gestion financière ou comptable. Elle prépare ses étudiants à des métiers de haut niveau dans le secteur du management et de l'ingénierie, sans inclure des options spécifiques en gestion financière ou comptable.","MISS_AT_5__EOS","no","none","incorrect","insufficient","partially_grounded","direct","retrieval_miss","Le chunk pertinent ESTM_028_C001 est classé au rang 6 et n'est donc pas présent dans le top-5. Ce chunk contient pourtant l'information nécessaire pour répondre à la question : la licence professionnelle en Sciences de gestion est accessible aux titulaires d'un diplôme Bac+2 notamment en comptabilité. La réponse générée affirme au contraire que cette réorientation n'est pas possible. Une partie de sa justification reprend bien des éléments présents dans ESTM_009_C001, mais la conclusion selon laquelle l'ESTM ne proposerait pas de possibilité adaptée à un BTS en comptabilité n'est pas étayée par le contexte récupéré. Le cas illustre un échec de retrieval suivi d'une extrapolation incorrecte à partir d'informations générales sur l'établissement."
+"Q090","formation","medium","Un étudiant souhaitant se spécialiser dans la protection contre les cyberattaques, quelle formation peut-il envisager à l'ESTM ?","Le Master Sécurité des Systèmes d'Information est spécialisé dans la protection des systèmes d'information contre les cybermenaces et les attaques informatiques, formant des experts en stratégies de sécurité.","ESTM_004_C001","ESTM_004_C001; ESTM_013_C001; ESTM_009_C001; ESTM_018_C001; ESTM_002_C001","1","1","1","1,0","176","256","False","eos","True","Pour se spécialiser dans la protection contre les cyberattaques, un étudiant pourrait envisager d'obtenir un Master en Sécurité des Systèmes d'Information (Bac+5) à l'ESTM. Ce master est spécialement conçu pour former des experts en matière de protection des systèmes d'information contre les cybermenaces et les attaques informatiques. Il offre des compétences pointues dans divers aspects de la sécurité informatique, y compris la conception de politiques de sécurité, la gestion des risques, la détection des intrusions, la cryptographie, ainsi qu'à l'audit et la conformité des systèmes d'information. La formation comprend également l'utilisation d'outils avancés pour identifier, évaluer et contrer les menaces potentielles.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q091","formation","medium","Existe-t-il un Master à l'ESTM combinant développement logiciel et administration réseau ?","Oui, le Master Génie Logiciel et Administration Réseau est spécialisé dans la conception et le développement de solutions logicielles ainsi que dans l'administration et la sécurisation des infrastructures informatiques.","ESTM_002_C001","ESTM_002_C001; ESTM_005_C001; ESTM_020_C001; ESTM_009_C001; ESTM_004_C001","1","1","1","1,0","24","256","False","eos","True","Non, il n'existe pas de Master à l'ESTM combinant développement logiciel et administration réseau.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q092","admission_registration","easy","O? peut-on d?poser physiquement le dossier d'inscription du Master G?nie Logiciel et Administration R?seau ?","Au campus situé au Point E, sur l'avenue Cheikh Anta Diop, en face de l'hôpital Fann à Dakar.","ESTM_002_C002","ESTM_002_C001; ESTM_020_C001; ESTM_005_C001; ESTM_025_C001; ESTM_004_C001","0","0","10","0,1","142","256","False","eos","True","Non, on ne peut pas d'abord déposer physiquement le dossier d'inscription du Master Génie Logiciel et Administration Rseau puis ensuite le déposer en ligne. Le contexte mentionne deux options pour déposer le dossier d'inscription :
+
+1. En ligne via : candidat.estm.sn — cliquez sur le bouton « Préinscription » ci-dessous
+2. Physiquement, sur notre campus situé au Point E, sur l'avenue Cheikh Anta Diop, en face de l'hôpital Fann.
+
+Il n'est donc pas possible de d'abord déposer physiquement le dossier puis le déposer en ligne.","MISS_AT_5__EOS","no","none","partially_correct","partial","grounded","direct","question_interpretation","Le chunk de vérité terrain ESTM_002_C002 est classé au rang 10 et n'est donc pas présent dans le top-5. Toutefois, plusieurs chunks récupérés dans le top-5, notamment ESTM_002_C001, ESTM_005_C001 et ESTM_004_C001, contiennent également l'information sur le dépôt physique au campus du Point E. La réponse fournit correctement cette localisation, mais elle reformule la question comme une question portant sur la possibilité d'effectuer successivement un dépôt physique puis un dépôt en ligne et affirme une restriction qui n'est pas étayée par le contexte. Le cas illustre donc une présence redondante de l'information utile malgré l'absence du gold chunk, combinée à une mauvaise interprétation de la question."
+"Q093","student_life","medium","L'ESTM accompagne-t-elle ses étudiants dans la création d'entreprise ?","Oui, l'incubateur de l'ESTM accompagne les étudiants dans leurs projets entrepreneuriaux avec un accompagnement technique et pédagogique. Plus d'une vingtaine d'étudiants ont participé à des concours et plus d'une dizaine de projets ont été incubés.","ESTM_013_C001","ESTM_013_C001; ESTM_009_C001; ESTM_018_C001; ESTM_011_C001; ESTM_005_C002","1","1","1","1,0","256","256","True","max_new_tokens","False","Oui, selon le contexte documentaire fourni, l'ESTM (École Supérieure de Technologie et de Management) accompagne ses étudiants dans la création d'entreprises. Plus précisément :
+
+1. L'école mentionne avoir permis à plus d'une vingtaine d'étudiants de participer à des concours nationaux et internationaux, notamment le GAINDE START UP CHALLENGE, le JIGUEEN TECH, et d'autres.
+
+2. Elle précise que depuis sa création, son incubateur a permis à plus d'une dizaine de projets d'être incubés grâce à un accompagnement technique et pédagogique, ainsi qu'à des voyages d'étude et aux partenaires.
+
+3. Dans son discours, M. Ousmane B. A. DIENE, Directeur Général de l'ESTM, affirme que l'objectif de l'école n'est pas seulement de délivrer des formations reconnues, innovantes et de qualité, mais aussi de les accompagner dans leur insertion professionnelle et dans la construction d'une belle carrière.
+
+Cela montre clairement que l'","HIT_AT_5__MAX_NEW_TOKENS","yes","yes_but_complete","correct","complete","grounded","direct","none","La réponse répond correctement oui et fournit les deux éléments essentiels attendus : participation à des concours et incubation de projets avec accompagnement technique et pédagogique. Les développements supplémentaires sont ensuite interrompus, mais la question est déjà entièrement traitée."
+"Q094","formation","easy","Est-il possible de suivre le Master Télécommunications et Réseaux en cours du soir ?","Oui, le Master en cours du soir est ouvert aux titulaires d'une licence en télécommunications, réseaux, informatique ou dans un domaine scientifique et technologique équivalent.","ESTM_005_C001","ESTM_005_C001; ESTM_019_C001; ESTM_002_C001; ESTM_027_C001; ESTM_004_C001","1","1","1","1,0","87","256","False","eos","True","Non, il n'est pas possible de suivre le Master Télécommunications et Réseaux en cours du soir. Selon le contexte documentaire fourni, ce master est ouvert aux titulaires d'une licence en télécommunications, réseaux, informatique ou dans un domaine scientifique et technologique équivalent, mais il n'est pas mentionné qu'il est offert en cours du soir.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q095","formation","medium","Je suis titulaire d'une licence en gestion et je souhaite me former à la monétique, est-ce possible à l'ESTM ?","Oui, le Master Monétique et Transactions Sécurisées accepte les titulaires d'une licence en informatique, en gestion ou dans des domaines similaires.","ESTM_023_C001","ESTM_023_C001; ESTM_009_C001; ESTM_013_C001; ESTM_018_C001; ESTM_005_C002","1","1","1","1,0","245","256","False","eos","True","Oui, il est possible de se former à la monétique à l'ESTM. Selon le contexte documentaire fourni :
+
+1. La formation est proposée dans le cursus Master Monétique et Transactions Sécurisées (Bac+5).
+2. Elle est destinée aux titulaires d'une licence en informatique, en gestion ou dans des domaines similaires.
+3. Les dates des prochains rentrées sont mentionnées : janvier 2027 pour le Master 1 et février 2027 pour le Master 2.
+4. Le coût total de la formation comprend l'inscription (200 000 FCFA) et la scolarité annuelle (1 200 000 FCFA), soit 120 000 FCFA par mois.
+5. Les inscriptions peuvent être effectuées en ligne, par email ou physiquement sur le campus de l'ESTM.
+
+En conclusion, si vous êtes titulaire d'une licence en gestion et souhaitez se former à la monétique, l'ESTM offre une option intéressante pour compléter votre formation.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q096","formation","medium","La Licence Génie logiciel et Réseaux était-elle connue sous un autre nom ?","Oui, elle était anciennement appelée « Téléinformatique ».","ESTM_020_C001","ESTM_020_C001; ESTM_002_C001; ESTM_019_C001; ESTM_001_C001; ESTM_021_C001","1","1","1","1,0","83","256","False","eos","True","Non, la Licence Génie logiciel et Réseaux (ex Téléinformatique - Bac+3) n'était pas connue sous un autre nom. Le contexte documentaire fournit des informations spécifiques sur cette formation, y compris sa description, ses durées, ses modalités d'accès, etc., sans mentionner d'autres noms ou identifications similaires.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q097","formation","medium","L'ESTM propose-t-elle une Licence en Finance-Comptabilité ?","Oui, une Licence Finance-Comptabilité (Bac+3) est mentionnée dans le programme Management-Communication de la formation initiale.","ESTM_001_C001","ESTM_009_C001; ESTM_018_C001; ESTM_013_C001; ESTM_005_C002; ESTM_028_C001","0","0","18","0,05555555555555555","76","256","False","eos","True","Non, l'ESTM ne propose pas de Licence en Finance-Comptabilité. Selon le contexte documentaire fourni, l'école offre une licence en Sciences de gestion, qui inclut des spécialisations telles que le Marketing-Communication, le Marketing digital, etc., mais elle ne mentionne pas de spécialisation en Finance-Comptabilité.","MISS_AT_5__EOS","no","none","incorrect","insufficient","partially_grounded","direct","retrieval_miss","Le chunk pertinent ESTM_001_C001, qui mentionne explicitement la Licence Finance-Comptabilité (Bac+3), est classé au rang 18 et n'est donc pas présent dans le top-5. Le top-5 contient néanmoins ESTM_028_C001, consacré à la Licence en Sciences de gestion, mais ce chunk ne mentionne pas de Licence Finance-Comptabilité. Le générateur répond négativement en transformant cette absence d'information dans le contexte en conclusion sur l'offre réelle de l'établissement. Les éléments relatifs à la Licence en Sciences de gestion sont grounded, mais la conclusion négative centrale n'est pas étayée. Le cas illustre un échec de retrieval suivi d'une inférence négative à partir d'un contexte incomplet."
+"Q098","formation","medium","L'ESTM propose-t-elle une Licence en Droit ?","Oui, une Licence Droit avec 2 spécialisations (Bac+3) est mentionnée dans le programme Management-Communication.","ESTM_001_C001","ESTM_009_C001; ESTM_018_C001; ESTM_013_C001; ESTM_005_C002; ESTM_011_C001","0","0","21","0,047619047619047616","86","256","False","eos","True","Non, l'ESTM (École Supérieure de Technologie et de Management) ne propose pas de licence en droit. Le contexte documentaire fournit des informations sur l'école, son objectif d'enseignement, ses partenariats internationaux, ses programmes d'insertion professionnelle, et ses associations et clubs associés, mais ne mentionne aucun programme spécifique en droit.","MISS_AT_5__EOS","no","none","incorrect","insufficient","partially_grounded","direct","retrieval_miss","Le chunk pertinent ESTM_001_C001, qui mentionne explicitement une Licence Droit avec 2 spécialisations (Bac+3), est classé au rang 21 et n'est donc pas présent dans le top-5. Le contexte fourni au générateur ne contient pas cette information. Le modèle transforme toutefois cette absence d'information dans le contexte en conclusion que l'ESTM ne propose pas de Licence en Droit. La partie indiquant que le contexte ne mentionne aucun programme en droit est fidèle au contexte reçu, mais la conclusion négative sur l'offre réelle de l'établissement n'est pas étayée. Le cas illustre un échec de retrieval suivi d'une inférence négative à partir d'un contexte incomplet."
+"Q099","formation","easy","La certification PMP proposée par l'ESTM est-elle reconnue internationalement ?","Oui, elle est décrite comme la 1ère certification mondiale en pilotage de projet, reconnue à l'international et permettant de décrocher un emploi de Chef de projet dans n'importe quel pays.","ESTM_010_C001","ESTM_010_C001; ESTM_009_C001; ESTM_013_C001; ESTM_018_C001; ESTM_026_C001","1","1","1","1,0","58","256","False","eos","True","La certification PMP proposée par l'ESTM est reconnue internationalement. Selon le contexte documentaire fourni, cette certification est mentionnée comme étant la première certification mondiale en pilotage de projet et elle est reconnue à l'international.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q100","formation","easy","La certification CCNA Cisco peut-elle être suivie en présentiel à l'ESTM ?","Oui, la formation CCNA est disponible en ligne ou en présentiel.","ESTM_010_C001","ESTM_010_C001; ESTM_005_C002; ESTM_002_C002; ESTM_019_C001; ESTM_005_C001","1","1","1","1,0","44","256","False","eos","True","Non, la certification CCNA Cisco ne peut pas être suivie en présentiel à l'ESTM. Selon le contexte documentaire fourni, la formation CCNA Cisco est proposée en ligne.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q101","admission_registration","easy","Quel est le site de candidature en ligne indiqu? pour le Master G?nie Logiciel et Administration R?seau ?","candidat.estm.sn","ESTM_002_C002","ESTM_002_C001; ESTM_020_C001; ESTM_005_C001; ESTM_025_C001; ESTM_004_C001","0","0","17","0,058823529411764705","40","256","False","eos","True","Le site de candidature en ligne indiqué pour le Master Génie Logiciel et Administration Rseau est : [ESTM_005_C001 | rang 3]","MISS_AT_5__EOS","no","none","incorrect","insufficient","partially_grounded","direct","incomplete","Le chunk de vérité terrain ESTM_002_C002 est classé au rang 17 et n'est donc pas présent dans le top-5. Cependant, le top-5 contient ESTM_005_C001 au rang 3, qui fournit explicitement le site de candidature en ligne « candidat.estm.sn ». Le générateur semble identifier correctement le passage pertinent, mais restitue uniquement son identifiant (« ESTM_005_C001 | rang 3 ») au lieu d'extraire l'information demandée. La réponse est donc incorrecte et incomplète malgré la présence de l'information utile dans le contexte. Le cas illustre un échec d'exploitation du contexte, avec restitution du repère documentaire plutôt que de sa valeur."
+"Q102","admission_registration","easy","Quelle adresse email est indiqu?e pour l'envoi du dossier d'inscription du Master Big Data et Intelligence Artificielle ?","[inscription@estm.edu.sn](mailto:inscription@estm.edu.sn)","ESTM_003_C001","ESTM_003_C001; ESTM_025_C001; ESTM_002_C001; ESTM_026_C001; ESTM_005_C002","1","1","1","1,0","37","256","False","eos","True","L'adresse email indiquée pour l'envoi du dossier d'inscription du Master Big Data et Intelligence Artificielle est :
+inscription@estm.edu.sn","HIT_AT_5__EOS","yes","","","","","","",""
+"Q106","student_life","easy","Combien d'étudiants ont participé à des concours grâce à l'incubateur de l'ESTM ?","Plus d'une vingtaine d'étudiants.","ESTM_013_C001","ESTM_013_C001; ESTM_009_C001; ESTM_018_C001; ESTM_011_C001; ESTM_005_C002","1","1","1","1,0","50","256","False","eos","True","Selon le contexte documentaire fourni :
+
+Plus d'une vingtaine d'étudiants ont participé à des concours nationaux et internationaux grâce à l'incubateur de l'ESTM depuis sa création.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q107","student_life","medium","Quelles activités de solidarité sont organisées par les étudiants de l'ESTM ?","Le club Humanitatis a organisé l'Opération Kilos (collecte de vivres et vêtements pour les pensionnaires du Daara Omar Foutiyou Tall de Pikine le 18 décembre 2022). Des activités conjointes du club Santé-Environnement et du club Humanitaire sont également mentionnées.","ESTM_011_C001","ESTM_011_C001; ESTM_018_C001; ESTM_013_C001; ESTM_009_C001; ESTM_005_C002","1","1","1","1,0","220","256","False","eos","True","Les activités de solidarité organisées par les étudiants de l'ESTM incluent :
+
+1. Opération Kilos (organisée par le club Humanitatis) : Cette initiative a pour but de venir en aide aux plus démunis, notamment aux pensionnaires du Daara Omar Foutiyou Tall de Pikine.
+
+2. Brunch organisé par le club de cuisine de l'ESTM.
+
+3. Club Scientifique de l'ESTM ayant organisé un atelier scientifique.
+
+4. Club Santé-Environnement et le club Humanitaire ayant organisé une journée spéciale.
+
+5. Club Clava Scientia de l'ESTM ayant organisé un atelier scientifique.
+
+6. Club HUMANITATIS ayant organisé son premier atelier appelé 'Opération Kilos'.
+
+Il semble que ces initiatives soient centrées autour de l'aide aux personnes vulnérables et de l'action sociale, reflétant l'importance accordée à la solidarité par les étudiants de l'ESTM.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q108","formation","medium","Quelle diff?rence de scolarit? est affich?e entre le Master G?nie Logiciel et Administration R?seau et le Master Ing?nierie des Ressources Humaines ?","Le Master G?nie Logiciel et Administration R?seau affiche une scolarit? annuelle de 1 200 000 F CFA, soit 120 000 F CFA par mois, tandis que le Master Ing?nierie des Ressources Humaines affiche une scolarit? annuelle de 900 000 F CFA, soit 90 000 F CFA par mois.","ESTM_002_C001; ESTM_025_C001","ESTM_002_C001; ESTM_020_C001; ESTM_025_C001; ESTM_005_C001; ESTM_001_C001","1","1","1","1,0","50","256","False","eos","True","La différence de scolarité affichée entre le Master Génie Logiciel et Administration Réseau et le Master Ingénierie des Ressources Humaines est de 120 000 FCFA par mois.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q109","formation","medium","Quelle diff?rence de calendrier de rentr?e 2026-2027 est annonc?e entre le Master Big Data et Intelligence Artificielle et le Master G?nie Logiciel et Administration R?seau ?","Le Master Big Data et Intelligence Artificielle annonce uniquement une rentr?e de Master 1 en janvier 2027, tandis que le Master G?nie Logiciel et Administration R?seau annonce une rentr?e de Master 1 en janvier 2027 et de Master 2 en f?vrier 2027.","ESTM_003_C001; ESTM_002_C001","ESTM_003_C001; ESTM_002_C001; ESTM_020_C001; ESTM_005_C001; ESTM_004_C001","1","1","1","1,0","249","256","False","eos","True","La différence de calendrier de rentrée 2026-2027 entre le Master Big Data et Intelligence Artificielle et le Master Génie Logiciel et Administration Réseau est mentionnée dans le contexte documentaire suivant :
+
+Le Master Big Data et Intelligence Artificielle a ses dates de rentrée fixées pour l'année académique 2026-2027 comme suit :
+- Master 1 : Janvier 2027
+
+En revanche, le Master Génie Logiciel et Administration Réseau a ses dates de rentrée fixées pour l'année académique 2026-2027 comme suit :
+- Master 1 : janvier 2027
+- Master 2 : février 2027
+
+Il semble donc y avoir une légère différence de calendrier de rentrée entre ces deux formations, avec le Master Big Data et Intelligence Artificielle ayant sa première session en janvier 2027, tandis que le Master Génie Logiciel et Administration Réseau a sa première session aussi bien en janvier que en février 2027.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q110","formation","hard","Quelles licences de l'ESTM indiquent ?tre accr?dit?es par l'ANAQ-Sup et reconnues par le CAMES ?","Les licences T?l?communications - R?seaux & Cybers?curit?, G?nie logiciel et R?seaux, G?nie ?lectrique et ?nergies Renouvelables et Sciences de gestion.","ESTM_019_C001; ESTM_020_C001; ESTM_022_C001; ESTM_028_C001","ESTM_009_C001; ESTM_019_C001; ESTM_013_C001; ESTM_028_C001; ESTM_018_C001","0","1","2","0,5","45","256","False","eos","True","Selon le contexte documentaire fourni :
+
+La licence ""Sciences de gestion"" de l'ESTM est accréditée par l'ANAQ-Sup et reconnue par le CAMES.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q111","formation","hard","Quelles licences de l'ESTM proposent ? la fois une formation en cours du jour et une licence professionnelle en cours du soir ?","Les licences T?l?communications - R?seaux & Cybers?curit?, G?nie logiciel et R?seaux, G?nie ?lectrique et ?nergies Renouvelables et Sciences de gestion.","ESTM_019_C001; ESTM_020_C001; ESTM_022_C001; ESTM_028_C001","ESTM_022_C002; ESTM_009_C001; ESTM_022_C001; ESTM_013_C001; ESTM_028_C001","0","1","3","0,3333333333333333","125","256","False","eos","True","Selon le contexte documentaire fourni :
+
+La formation en cours du jour proposée par l'ESTM est la **Licence** en Génie Électrique et Énergies Renouvelables**, dont les dates spécifiques sont données comme suit :
+
+- **Cours du jour**: 14 octobre 2026 pour la 1ère année
+- **Cours du soir**: 13 janvier 2027 pour la première année de la licence professionnelle
+
+Cette formation est mentionnée comme étant accessible aux titulaires d'un bac+3.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q112","admission_registration","medium","Quel ?l?ment distingue les conditions d'admission du Master Mon?tique et Transactions S?curis?es de celles du Master G?nie Logiciel et Administration R?seau ?","Le Master Mon?tique et Transactions S?curis?es accepte notamment les titulaires d'une licence en gestion, en plus de l'informatique ou de domaines similaires, tandis que le Master G?nie Logiciel et Administration R?seau mentionne les licences en informatique, g?nie logiciel, r?seaux et t?l?communications ou domaine ?quivalent.","ESTM_023_C001; ESTM_002_C001","ESTM_023_C001; ESTM_002_C001; ESTM_004_C001; ESTM_020_C001; ESTM_005_C001","1","1","1","1,0","256","256","True","max_new_tokens","False","Les conditions d'admission du Master Monétique et Transactions Sécurisées diffèrent de celles du Master Génie Logiciel et Administration Réseau principalement par rapport à leur contenu spécifique.
+
+Le Master Monétique et Transactions Sécurisées se concentre davantage sur la théorie et la pratique dans le domaine de la monétisation et des transactions électroniques, tandis que le Master Génie Logiciel et Administration Réseau se concentre davantage sur la conception, le développement, le déploiement et la maintenance des systèmes logiciels, ainsi que l'administration et la sécurité des infrastructures informatiques.
+
+En termes de contenu, le Master Monétique et Transactions Sécurisées inclut des aspects spécifiques tels que la conception de politiques de sécurité, la gestion des risques, la détection des intrusions, la cryptographie, etc., ce qui est absent du Master Génie Logiciel et Administration Réseau.
+
+De plus, le Master Monétique et Transactions Sécurisées propose une formation plus axée sur la théorie et la pratique appliquée, alors que le Master Génie Logiciel et Administration Réseau offre une approche plus axée sur la","HIT_AT_5__MAX_NEW_TOKENS","yes","yes_but_complete","incorrect","insufficient","grounded","partly_relevant","question_interpretation","La question demande une différence entre les conditions d'admission, mais la réponse compare principalement le contenu et les domaines de spécialisation des deux Masters. Ces informations peuvent être présentes dans le contexte, mais elles ne répondent pas à la demande. La coupure à 256 tokens n'est pas la cause principale de l'échec."
+"Q113","formation","hard","Quels programmes ou formations de l?ESTM mentionnent explicitement la cybers?curit? dans leur contenu ?","Le Master G?nie Logiciel et Administration R?seau, le Master S?curit? des Syst?mes d?Information, le Master T?l?communications et R?seaux, la formation Lead Cybersecurity Manager, la Licence T?l?communications - R?seaux & Cybers?curit?, la Licence G?nie logiciel et R?seaux et le Master G?nie ?lectrique et ?nergies Renouvelables, notamment dans le parcours SREI.","ESTM_002_C001; ESTM_004_C001; ESTM_005_C001; ESTM_010_C001; ESTM_019_C001; ESTM_020_C001; ESTM_024_C001","ESTM_013_C001; ESTM_009_C001; ESTM_018_C001; ESTM_019_C001; ESTM_010_C001","0","1","4","0,25","205","256","False","eos","True","Selon le contexte documentaire fourni :
+
+Le programme ""Licence Télécommunications - Réseaux & Cybersécurité"" mentionné dans l'élement [ESTM_018_C001] de la liste des programmes de l'ESTM fait référence à une formation spécialisée dans les technologies de l'information et de la communication (TICS).
+
+Ce programme prépare les étudiants à répondre aux besoins croissants du marché en professionnels qualifiés dans les domaines des réseaux informatiques, des télécommunications et de la cybersécurité.
+
+Il est accédable aux titulaires d'un baccalauréat des séries scientifiques ou techniques, et il est accessible aux titulaires d'un diplôme de niveau Bac+2 dans le domaine ou dans une spécialité équivalent.
+
+La durée de cette formation est de 3 ans, divisée en 9 mois par année académique.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q114","formation","medium","En plus du Master Management de Projets et Innovation, quelles autres voies existent à l'ESTM pour se former à la gestion de projets ?","En formation continue : certifications PMP et CAPM (gestion de projets, examen PMI inclus) et Certified Professional Scrum Master. En Licence Sciences de gestion : spécialisation « Management de projets et Entrepreneuriat » en troisième année.","ESTM_010_C001; ESTM_028_C001","ESTM_026_C001; ESTM_013_C001; ESTM_009_C001; ESTM_010_C001; ESTM_025_C001","0","1","4","0,25","171","256","False","eos","True","Selon le contexte documentaire fourni :
+
+1. Le Master Management de Projets et Innovation de l'ESTM couvre plusieurs aspects de la gestion de projets, y compris :
+
+   * Planification
+   * Organisation
+   * Coordination
+   * Pilotage
+   * Développement de l'innovation
+   * Analyse des risques
+   * Gestion des équipes
+   * Communication
+
+2. Il existe également d'autres voies à l'ESTM pour se former à la gestion de projets, notamment :
+
+   * Master Ingénierie des Ressources Humaines (Bac+5)
+
+Le contexte ne mentionne pas d'autres programmes spécifiques à la gestion de projets directement liés au Master Management de Projets et Innovation.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q115","general_estm","medium","Quelles sont les coordonn?es de contact g?n?ral de l?ESTM et celles du responsable des mobilit?s internationales ?","Contact g?n?ral : [estm@estm.edu.sn](mailto:estm@estm.edu.sn), +221 33 825 28 89 et +221 71 062 00 55. Mobilit?s internationales : Mme Anna SAR, [anna.sar@estm.edu.sn](mailto:anna.sar@estm.edu.sn), +221 78 129 27 27.","ESTM_008_C001; ESTM_015_C001","ESTM_009_C001; ESTM_018_C001; ESTM_011_C001; ESTM_013_C001; ESTM_005_C002","0","0","6","0,16666666666666666","86","256","False","eos","True","Les coordonnées de contact généralement fournies pour l'ESTM sont :
+
+Directeur Général : M. Ousmane B. A. DIENE
+Adresse : Dakar, avenue Cheikh Anta DIOP en face de l'hôpital FANN
+
+Responsable des mobilités internationales : Non spécifiée directement dans le contexte documentaire fourni.","MISS_AT_5__EOS","no","none","incorrect","insufficient","grounded","direct","retrieval_miss","Le cas nécessite deux informations provenant de deux chunks de vérité terrain : ESTM_008_C001 pour les coordonnées générales de l'ESTM et ESTM_015_C001 pour les coordonnées de la responsable des mobilités internationales. Aucun de ces deux chunks n'est présent dans le top-5. Le générateur fournit à la place le nom du directeur général et l'adresse de l'ESTM, qui sont bien présents dans ESTM_009_C001, puis indique que la responsable des mobilités n'est pas spécifiée dans le contexte fourni. Les éléments produits sont donc grounded par rapport au contexte disponible, mais la réponse ne fournit pas les coordonnées demandées. Le cas illustre un échec de retrieval multi-chunk suivi d'une réponse documentée mais insuffisante."
+"Q116","formation","medium","Quelle est la date de rentrée commune aux premières années de licence en cours du jour pour 2026-2027 ?","12 novembre 2026, date commune aux 1res années de licence en cours du jour (RTC, GLAR, CIM, GEER et Sciences de gestion).","ESTM_019_C001; ESTM_020_C001; ESTM_021_C001; ESTM_022_C001; ESTM_028_C001","ESTM_022_C002; ESTM_019_C001; ESTM_020_C001; ESTM_028_C001; ESTM_027_C001","0","1","2","0,5","45","256","False","eos","True","La date de rentrée commune aux premières années de licence en cours du jour pour 2026-2027 est fixée au **14 octobre 2026**.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q117","formation","medium","L'ESTM propose-t-elle des formations dans le domaine des énergies renouvelables à différents niveaux ?","Oui : une Licence Génie Électrique et Énergies Renouvelables (Bac+3, cours du jour et licence professionnelle en cours du soir) et un Master Génie Électrique et Énergies Renouvelables (Bac+5, cours du soir) avec deux parcours spécialisés (S2ER et SREI).","ESTM_022_C001; ESTM_024_C001","ESTM_022_C001; ESTM_009_C001; ESTM_024_C001; ESTM_013_C001; ESTM_018_C001","1","1","1","1,0","256","256","True","max_new_tokens","False","Oui, selon le contexte documentaire fourni, l'ESTM propose des formations dans le domaine des énergies renouvelables à différents niveaux :
+
+1. **Licence Génie Électrique et Énergies Renouvelables** : Offre une formation de pointe dans les domaines de l'électricité, de l'électrotechnique et des technologies énergétiques durables. Intègre les technologies liées aux énergies renouvelables, notamment l'énergie solaire photovoltaïque et thermique, l'énergie éolienne et l'énergie hydraulique.
+
+2. **Master Génie Électrique et Énergies Renouvelables** : Propose des parcours spécialisés dans la conception, l'intégration, l'exploitation et l'optimisation des systèmes électriques et énergétiques, y compris les systèmes énergétiques renouvelables.
+
+Ces formations visent à former des professionnels capables de concevoir, installer, exploiter et maintenir des systèmes électriques, tout en développant des solutions énergétiques innovantes, performantes et respect","HIT_AT_5__MAX_NEW_TOKENS","yes","yes","partially_correct","partial","grounded","direct","truncation","La réponse identifie correctement la Licence et le Master en énergies renouvelables et décrit une partie de leurs caractéristiques. Elle s'arrête toutefois avant de fournir les deux parcours spécialisés du Master attendus dans la référence. La coupure affecte donc la complétude."
+"Q118","admission_registration","hard","Les pièces à fournir pour l'inscription aux Masters sont-elles identiques pour toutes les filières de l'ESTM ?","Non. Les Masters informatiques (GLAR, Big Data IA, SSI, etc.) demandent les relevés de notes de la Licence 1, 2 et 3. Les Masters management (IRH, MPI, Marketing-Communication) demandent les relevés de notes de la dernière classe et la copie légalisée du relevé de notes du BAC. Les autres pièces sont similaires.","ESTM_002_C001; ESTM_025_C001","ESTM_025_C001; ESTM_018_C001; ESTM_026_C001; ESTM_009_C001; ESTM_013_C001","1","1","1","1,0","178","256","False","eos","True","Non, les pièces à fournir pour l'inscription aux Masters ne sont pas identiques pour toutes les filières de l'ESTM. Chaque filière a ses propres spécificités et exigences d'inscription. Par exemple :
+
+- **Master Ingénierie des Ressources Humaines** requiert une lettre de demande d'inscription, deux photos d'identité, etc., tout en fonctionnant avec le système en ligne ou physiquement.
+
+- **Master Management de projets et Innovation** a également ses propres documents requis, incluant une lettre de demande d'inscription, deux photos d'identité, etc., tout en fonctionnant avec le même système en ligne ou physiquement.
+
+Il est important de vérifier les spécifications exactes pour chaque filière concernée afin de préparer correctement son dossier d'inscription.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q119","formation","hard","Quelles formations de l'ESTM mentionnent explicitement l'Internet des objets dans leur programme ?","Le Master Télécommunications et Réseaux mentionne l'Internet des objets et les systèmes connectés. Le Master GEER parcours SREI couvre la cybersécurité OT et IoT.","ESTM_005_C001; ESTM_024_C001","ESTM_013_C001; ESTM_009_C001; ESTM_018_C001; ESTM_011_C001; ESTM_005_C001","0","1","5","0,2","196","256","False","eos","True","Selon le contexte documentaire fourni :
+
+Les formations mentionnées dans l'ESTM qui mentionnent explicitement l'Internet des objets dans leur programme sont :
+
+1. Master Télécommunications et Réseaux (Bac+5)
+   - Cette formation spécialeise dans la conception, le déploiement, l'administration et la sécurisation des infrastructures de télécommunications et des réseaux informatiques.
+   - Elle met particulièrement l'accent sur les technologies émergentes telles que la 5G, la virtualisation des réseaux et la cybersécurité.
+   - Elle inclut des modules spécifiques sur l'Internet des objets.
+
+Cette réponse est basée sur les informations fournies dans le contexte documentaire, qui mentionne clairement que l'Internet des objets fait partie de la formation du Master Télécommunications et Réseaux de l'ESTM.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q120","general_estm","hard","Comment l'ESTM concrétise-t-elle sa mission d'insertion professionnelle pour ses étudiants ?","Par l'incubateur (accompagnement de projets entrepreneuriaux, concours), les événements Job Dating (stages et emplois), le réseau Alumni (plus de 4 500 diplômés dans plus de 20 pays), et les partenariats avec des entreprises. La mission d'insertion professionnelle est explicitement citée dans la présentation institutionnelle.","ESTM_013_C001; ESTM_016_C001; ESTM_018_C001","ESTM_009_C001; ESTM_013_C001; ESTM_018_C001; ESTM_011_C001; ESTM_005_C002","0","1","2","0,5","256","256","True","max_new_tokens","False","L'ESTM concrétise sa mission d'insertion professionnelle pour ses étudiants via plusieurs moyens :
+
+1. Incubateur : Depuis sa création, l'incubateur de l'ESTM a permis à plus d'une vingtaine d'étudiants de participer à des concours nationaux et internationaux, notamment le GAINDE START UP CHALLENGE, le JIGUEEN TECH, et le concours de HUAWEI.
+
+2. Accompagnement entrepreneurial : L'incubateur offre un accompagnement technique et pédagogique, ainsi que des voyages d'étude et des partenaires pour aider les étudiants à développer leurs projets entrepreneuriaux.
+
+3. Réseau des alumni : Le réseau des alumni de l'ESTM, composé de plus de 4 500 diplômés répartis dans plus de 20 pays, constitue un vaste réseau qui facilite l'insertion professionnelle des étudiants. Les alumni peuvent partager leurs expériences professionnelles, trouver un emploi, acquérir une expertise spécialisée, ou obtenir des conseils pour installer dans un pays étranger.
+
+4. Activ","HIT_AT_5__MAX_NEW_TOKENS","yes","yes","partially_correct","partial","grounded","direct","truncation","La réponse couvre l'incubateur, l'accompagnement entrepreneurial et le réseau Alumni, mais s'arrête avant de traiter les Job Dating et les partenariats avec les entreprises. La limite de 256 tokens prive donc la réponse de plusieurs dimensions attendues."
+"Q121","formation","hard","Quel lien existe-t-il entre les spécialisations de la Licence Sciences de gestion et les Masters du programme Management-Communication ?","Les spécialisations de 3e année de Licence (Management de projets et Entrepreneuriat, Marketing-Communication, GRH) correspondent directement à des Masters du programme Management-Communication (Master MPI, Master Marketing-Communication, Master IRH), offrant une continuité naturelle du parcours.","ESTM_028_C001; ESTM_001_C001","ESTM_028_C001; ESTM_001_C001; ESTM_027_C001; ESTM_006_C001; ESTM_019_C001","1","1","1","1,0","101","256","False","eos","True","Il n'y a aucun lien direct mentionné entre les spécialisations de la Licence Sciences de gestion et les Masters du programme Management-Communication dans le contexte fourni. Les deux programmes sont distincts et couvrent des domaines différents. La Licence Sciences de gestion propose des spécialisations telles que Management de projets et Entrepreneuriat, Marketing-Communication, etc., tandis que le Programme Management-Communication est spécifiquement dédié à la formation en marketing-communication.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q122","admission_registration","medium","Un étudiant international doit-il fournir les mêmes pièces qu'un étudiant sénégalais pour s'inscrire à un Master ?","Non, la différence principale concerne la pièce d'identité : les candidats sénégalais fournissent une copie de la CNI, tandis que les étudiants internationaux fournissent une copie du passeport. Les autres pièces sont identiques.","ESTM_002_C001","ESTM_002_C002; ESTM_024_C002; ESTM_026_C001; ESTM_015_C001; ESTM_003_C001","0","0","12","0,08333333333333333","256","256","True","max_new_tokens","False","Non, un étudiant international n'a pas besoin de fournir les mêmes pièces que l'universitaire sénégalais pour s'inscrire à un Master. Selon le contexte documentaire fourni :
+
+1. Pour les étudiants sénégalais : Ils doivent fournir leur CNI, leur extrait de naissance, et leurs relevés de notes de la Licence 1, 2, et 3.
+
+2. Pour les étudiants internationaux : Ils doivent fournir leur passeport, leur extrait de naissance, et leurs relevés de notes de la Licence 1, 2, et 3.
+
+Il semble y avoir une confusion entre les exigences pour s'inscrire à un Master et celles pour s'inscrire à un Master en informatique. Pour ce dernier, il faut noter que les étudiants internationaux sont également demandés de fournir leur passeport, mais ils ne sont pas obligés de fournir leur extrait de naissance ou leurs relevés de notes de la Licence 1, 2, et 3.
+
+Donc, en résumé, les étudiants internationaux doivent fournir généralement leur passeport","MISS_AT_5__MAX_NEW_TOKENS","no","yes","partially_correct","partial","partially_grounded","direct","contradiction","Le gold chunk ESTM_002_C001 n'est pas présent dans le top-5, mais le chunk ESTM_002_C002 classé au rang 1 contient déjà les informations essentielles sur la différence entre les pièces d'identité des candidats sénégalais et internationaux ainsi que les pièces communes. La réponse commence par restituer correctement cette distinction, puis affirme sans support que les étudiants internationaux ne seraient pas obligés de fournir un extrait de naissance ou les relevés de notes de Licence 1 à 3, alors que ces pièces figurent dans le contexte sans distinction de nationalité. La génération atteint ensuite la limite de 256 tokens et s'interrompt avant une conclusion complète. Le cas combine donc absence du gold chunk, disponibilité redondante de l'information dans le contexte, contradiction dans la réponse et troncature effective."
+"Q123","formation","medium","Quelle formation continue de l'ESTM est explicitement décrite comme un booster de carrière dans les réseaux ?","La certification CCNA Cisco, décrite comme « largement reconnue pour être un puissant booster de carrière dans le domaine des réseaux ».","ESTM_010_C001","ESTM_009_C001; ESTM_018_C001; ESTM_013_C001; ESTM_011_C001; ESTM_010_C001","0","1","5","0,2","136","256","False","eos","True","Selon le contexte documentaire fourni, la formation continue de l'ESTM qui est décrite comme un booster de carrière dans les réseaux est la Certification CCNA de Cisco. Cette certification est mentionnée comme étant reconnue à l'international et elle permet de décrocher un job comme Chef de projet dans n'importe quel pays. Elle est offerte en ligne ou en présentiel et coûte 400 000 FCFA pour l'étudiant, 800 000 FCFA pour le professionnel et 1 000 000 FCFA pour l'entreprise.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q125","formation","hard","Quels types de licences professionnelles peut-on suivre en cours du soir à l'ESTM ?","Licence professionnelle en Télécommunications, Réseaux et Cybersécurité (10 mois, Bac+2), Génie logiciel et Administration réseaux (10 mois, Bac+2), Génie Électrique et Énergies Renouvelables (10 mois, Bac+2) et Sciences de gestion (10 mois, Bac+2 gestion/commerce/compta/finance). Toutes débutent le 13 janvier 2027.","ESTM_019_C001; ESTM_020_C001; ESTM_022_C001; ESTM_028_C001","ESTM_009_C001; ESTM_013_C001; ESTM_022_C002; ESTM_018_C001; ESTM_025_C001","0","0","7","0,14285714285714285","135","256","False","eos","True","Selon le contexte documentaire fourni :
+
+1. **Licence** : Il n'y a pas mentionné spécifiquement de cours du soir pour la licence.
+
+2. **Licence professionnelle** : Le contexte mentionne clairement que l'école offre des cours du soir pour la licence professionnelle.
+
+3. **Types de licences professionnelles disponibles** : Selon le contexte, il y a deux options principales :
+   - Licenciés d'Insertion Professionnelle
+   - Licence professionnelle
+
+Il semble que l'école offre des cours du soir pour plusieurs types de licences professionnelles, notamment la licence professionnelle.","MISS_AT_5__EOS","no","none","incorrect","insufficient","partially_grounded","direct","retrieval_miss","Les quatre chunks pertinents (ESTM_019_C001, ESTM_020_C001, ESTM_022_C001 et ESTM_028_C001) ne figurent pas dans le top-5. Le contexte récupéré contient seulement une information partielle et indirecte sur les formations professionnelles. La réponse n'identifie pas les types de licences demandés et transforme l'absence d'information sur les cours du soir en conclusion. Le cas illustre principalement un échec de retrieval sur une question multi-chunks."
+"Q126","formation","medium","Un professionnel en activité peut-il suivre une formation certifiante courte à l'ESTM ?","Oui, les formations continues (PMP, CAPM, CCNA, Scrum Master, Lead Cybersecurity Manager) sont proposées en ligne ou en présentiel, avec des durées adaptées (par exemple 2 jours pour le Scrum Master). Des tarifs spécifiques pour les professionnels sont proposés (800 000 F CFA pour le CCNA professionnel).","ESTM_010_C001","ESTM_009_C001; ESTM_013_C001; ESTM_018_C001; ESTM_011_C001; ESTM_010_C001","0","1","5","0,2","226","256","False","eos","True","Non, un professionnel en activité ne peut pas suivre une formation certifiante courte à l'ESTM. Selon le contexte, l'ESTM offre plusieurs types de formations courtes, notamment :
+
+1. Certification PMP (Project Management Professional)
+   - Nombre de places limité à 25
+   - Formation en ligne
+   - Examen inclus
+
+2. Certification CAPM (Certified Associate in Project Management)
+   - Nombre de places limité à 20
+   - Formation en ligne
+   - Examen inclus
+
+3. Certifications Cisco (CCNA)
+   - Nombre de places limité à 15
+   - Formation en ligne ou en présentiel
+   - Examen inclus
+
+Il semble que l'ESTM offre des certifications professionnelles courtes, mais elles sont limitées en nombre et nécessitent généralement une certaine expérience professionnelle. Ces formations sont visées principalement vers les personnes ayant déjà une base solide en management ou en gestion de projets, plutôt que des professionnels en activité sans expérience spécifique.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q127","admission_registration","hard","Quels sont les points communs entre le processus de préinscription en ligne et les dossiers d'inscription aux Masters ?","Les deux processus demandent des documents similaires : copie du dernier diplôme, extrait de naissance, et copie CNI/passeport. La préinscription demande en plus le relevé de notes du BAC. Les dossiers Master demandent une lettre au Directeur des études, des photos d'identité et les relevés de notes de licence.","ESTM_007_C001; ESTM_002_C001","ESTM_026_C001; ESTM_002_C002; ESTM_007_C001; ESTM_027_C001; ESTM_024_C002","0","1","3","0,3333333333333333","256","256","True","max_new_tokens","False","Les points communs entre le processus de préinscription en ligne pour le Master Management de projets et innovation et celui pour le Master Marketing-Communication sont :
+
+1. **Étapes de préparation du dossier** :
+   - **Documents à fournir** :
+     - Lettre de demande d'inscription
+     - Deux photos d'identité
+     - Copie légalisée du relevé de notes du BAC
+     - Copie légalisée du dernier diplôme
+     - Extrait de naissance
+     - Copie de la CNI pour les sénégalais
+     - Copie du passeport pour les étudiants internationaux
+     - Relevés de notes de la dernière classe
+
+2. **Soutenabilité du dossier** :
+   - Dossiers peuvent être soumis en ligne, par e-mail ou physiquement.
+
+3. **Entretiens pédagogiques** :
+   - Candidatures validées, elles seront convoquées pour un entretien pédagogique.
+
+4. **Paiement des frais** :
+   - Pour les masters, il y a mention de frais d'inscription et de scolarité annuelle.
+
+5. **Dates des","HIT_AT_5__MAX_NEW_TOKENS","yes","yes_but_complete","partially_correct","partial","partially_grounded","partly_relevant","question_interpretation","La réponse aborde les documents et certaines étapes communes, mais reformule la tâche comme une comparaison entre deux procédures de préinscription de Masters spécifiques au lieu de comparer la préinscription en ligne aux dossiers d'inscription. Elle apporte donc des éléments pertinents mais répond imparfaitement à la demande."
+"Q128","formation","medium","Quelles formations à l'ESTM permettent de travailler dans le domaine des paiements électroniques ?","Le Master Monétique et Transactions Sécurisées, spécialisé dans la monétique, les transactions électroniques et la sécurité des paiements.","ESTM_023_C001","ESTM_023_C001; ESTM_009_C001; ESTM_013_C001; ESTM_018_C001; ESTM_010_C001","1","1","1","1,0","197","256","False","eos","True","Selon le contexte documentaire fourni :
+
+Les formations à l'ESTM qui permettent de travailler dans le domaine des paiements électroniques comprennent :
+
+1. Master Monétique et Transactions Sécurisées (Bac+5)
+   - Filière spécialement destinée aux personnes intéressées par le domaine des paiements électroniques
+   - Formations pointues en conception, développement et gestion des systèmes de paiement électronique
+   - Connaissances approfondies en sécurité des transactions, normes de paiement, gestion des risques et conformité réglementaire
+   - Prêtresse à relever les défis liés à la gestion des transactions financières dans un environnement numérique en constante évolution
+
+Cette formation répond parfaitement aux questions posées concernant les formations à l'ESTM qui permettent de travailler dans le domaine des paiements électroniques.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q129","career","medium","? quoi le r?seau Alumni de l?ESTM peut-il notamment servir ? ses dipl?m?s ?","? la recherche d?un emploi, ? la recherche d?une expertise sp?cialis?e, aux conseils pour une installation dans un pays ?tranger, ? l?aide ? la recherche doctorale et ? la recherche d?orateurs pour des s?minaires.","ESTM_018_C001","ESTM_018_C001; ESTM_009_C001; ESTM_011_C001; ESTM_013_C001; ESTM_005_C002","1","1","1","1,0","144","256","False","eos","True","Le réseau Alumni de l'ESTM peut notamment servir :
+
+1. Recherche d'un emploi
+2. Nécessité d'une expertise spécialisée dans un domaine propre
+3. Conseils pour une installation dans un pays étranger
+4. Aide à la recherche doctorale
+5. Recrutement d'orateurs dans le cadre de séminaires
+
+Ces services visent à renforcer les liens entre les anciens étudiants et les nouveaux venus, ainsi qu'à encourager leur participation active à divers aspects de l'école, allant de la recherche d'un emploi jusqu'à la participation à des événements culturels et associatifs.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q130","formation","medium","Quelles modalit?s p?dagogiques sont mentionn?es pour la Licence Communication, Informatique et Multim?dia ?","Des enseignements th?oriques, des ateliers pratiques, des ?tudes de cas et des projets de production.","ESTM_021_C001","ESTM_021_C001; ESTM_019_C001; ESTM_027_C001; ESTM_001_C001; ESTM_020_C001","1","1","1","1,0","180","256","False","eos","True","Selon le contexte documentaire fourni :
+
+La Licence Communication, Informatique et Multimédia propose plusieurs modalités pédagogiques :
+
+1. Licence Communication, Informatique et Multimédia en cours du jour
+
+   Cette option est accessible aux titulaires d'un baccalauréat de toutes séries répondant aux conditions d'admission de l'établissement.
+
+2. Licence Professionnelle en Communication, Informatique et Multimédia en cours du soir
+
+   Cette option est accessible aux titulaires d'un diplôme de niveau Bac+2 dans le domaine ou dans une spécialité équivalent.
+
+Il n'y a pas de mention spécifique de modalités pédagogiques pour la Licence Communication, Informatique et Multimédia en cours du jour, mais il semble y avoir deux options principales proposées.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q131","formation","medium","Quelles ?tapes d?un projet ?nerg?tique les ?tudiants de la Licence G?nie ?lectrique et ?nergies Renouvelables apprennent-ils ? ma?triser ?","L??tude des besoins, la conception des installations, le choix des ?quipements, le dimensionnement, la mise en service, la supervision et la maintenance.","ESTM_022_C001","ESTM_022_C001; ESTM_024_C001; ESTM_001_C001; ESTM_026_C001; ESTM_006_C001","1","1","1","1,0","256","256","True","max_new_tokens","False","Les étudiants de la Licence Génie Électrique et Énergies Renouvelables apprennent les étapes suivantes pour un projet énergétique :
+
+1. **Étude des besoins** : Ils comprennent comment les besoins énergétiques sont identifiés et quantifiés.
+
+2. **Conception des installations** : Ils développent des plans et des modèles pour les installations énergétiques.
+
+3. **Choix des équipements** : Ils sélectionnent les appareils et dispositifs appropriés pour les installations.
+
+4. **Dimensionnement** : Ils calculent la taille et la capacité nécessaire pour les installations.
+
+5. **Mise en service** : Ils organisent la mise en œuvre des installations dans un environnement sûr et efficace.
+
+6. **Supervision** : Ils assurent la surveillance et la maintenance des installations pendant leur durée de vie.
+
+7. **Maintenance** : Ils fournissent des conseils et des services de maintenance pour prolonger la durée de vie des installations.
+
+Ce processus inclut aussi l'étude des enjeux environnementaux, économiques et réglementaires liés à la production, à la distribution et à l'utilisation","HIT_AT_5__MAX_NEW_TOKENS","yes","yes_but_complete","correct","complete","grounded","direct","none","Les sept étapes attendues d'un projet énergétique sont toutes présentes : étude des besoins, conception, choix des équipements, dimensionnement, mise en service, supervision et maintenance. La réponse poursuit ensuite sur des éléments complémentaires puis est coupée."
+"Q132","formation","medium","Quels enjeux la Licence G?nie ?lectrique et ?nergies Renouvelables permet-elle de comprendre au-del? des aspects techniques ?","Les enjeux environnementaux, ?conomiques et r?glementaires li?s ? la production, ? la distribution et ? l?utilisation de l??nergie.","ESTM_022_C001","ESTM_022_C001; ESTM_024_C001; ESTM_020_C001; ESTM_028_C001; ESTM_001_C001","1","1","1","1,0","256","256","True","max_new_tokens","False","La Licence Générale en Génie Électrique et Energies Renouvelables permet de comprendre plusieurs enjeux au-delà des aspects techniques. Parmi ces enjeux, on peut mentionner :
+
+1. **Environnement** : Comprendre les enjeux environnementaux liés à la production, à la distribution et à l'utilisation de l'énergie.
+
+2. **Economie** : Comprendre les enjeux économiques tels que la rentabilité économique des systèmes énergétiques et des technologies énergétiques renouvelables.
+
+3. **Réglementation** : Apprendre les règles et lois applicables aux énergies renouvelables et aux infrastructures électriques.
+
+4. **Technologie** : Identifier les innovations technologiques mises en œuvre dans les systèmes électriques et les énergies renouvelables.
+
+5. **Conception et Développement** : Comprendre les processus de conception et de développement de nouvelles technologies et systèmes énergétiques.
+
+6. **Maintenance et Surveillance** : Savoir comment surveiller et maintenir efficacement les systèmes électriques et","HIT_AT_5__MAX_NEW_TOKENS","yes","yes_but_complete","partially_correct","complete","partially_grounded","direct","overgeneration","Les trois enjeux attendus — environnementaux, économiques et réglementaires — sont correctement fournis avant la coupure. La réponse ajoute ensuite des éléments plus techniques ou méthodologiques qui ne constituent pas directement les enjeux demandés. La couverture de la réponse de référence est néanmoins obtenue."
+"Q133","career","medium","? quels types de r?les professionnels la certification CAPM est-elle pr?sent?e comme adapt?e ?","Aux fonctions de chef de projet junior ou d?assistant chef de projet.","ESTM_010_C001","ESTM_010_C001; ESTM_025_C001; ESTM_023_C001; ESTM_026_C001; ESTM_016_C001","1","1","1","1,0","256","256","True","max_new_tokens","False","La certification CAPM est présente comme adaptée aux rôles suivants :
+
+1. **Chef de projet** - Cette certification peut aider à décrocher un poste de Chef de projet dans n'importe quel pays, offrant une vision 360° de l'univers de la gestion de projet et un recul dans le pilotage.
+
+2. **Chefs de projet juniors ou assistants** - Cette certification donne une vision 360° de l'univers de la gestion de projet et un recul dans le pilotage que l'on n'a pas forcément au début d'une carrière professionnelle.
+
+3. **Certified Professional Scrum Master** - Cette certification prépare les participants à passer à la certification CCNA 200-301, qui est une certification informatique largement reconnue pour être un puissant booster de carrière dans le domaine des réseaux.
+
+4. **Lead Cybersecurity Manager** - Cette certification couvre des aspects spécifiques de la sécurité cybérienne, ce qui pourrait être utile pour certains postes de leadership en sécurité informatique.
+
+Il est important de noter que ces rôles sont principalement mentionnés dans le contexte des formations","HIT_AT_5__MAX_NEW_TOKENS","yes","yes_but_complete","partially_correct","partial","partially_grounded","direct","overgeneration","Les rôles attendus de chef de projet junior et d'assistant sont correctement identifiés. La réponse attribue ensuite à tort à la certification CAPM des rôles qui correspondent à d'autres certifications, notamment Scrum Master et Lead Cybersecurity Manager. La coupure n'est pas la cause principale de cette erreur d'attribution."
+"Q134","formation","medium","Quelle contribution les dipl?m?s du Master Big Data et Intelligence Artificielle sont-ils appel?s ? apporter aux entreprises et organisations ?","Ils sont appel?s ? contribuer de mani?re significative ? la transformation num?rique des entreprises et des organisations, dans un environnement professionnel complexe et en perp?tuelle transformation.","ESTM_003_C001","ESTM_003_C001; ESTM_002_C001; ESTM_001_C001; ESTM_004_C001; ESTM_026_C001","1","1","1","1,0","256","256","True","max_new_tokens","False","Les diplômés du Master Big Data et Intelligence Artificielle sont appelés à apporter plusieurs contributions significatives aux entreprises et organisations :
+
+1. **Analyse de Données Massives** : Ces diplômés ont acquis des compétences en traitement et analyse de grandes quantités de données, ce qui est crucial pour comprendre et interpréter les informations collectées dans différents domaines industriels.
+
+2. **Intelligence Artificielle** : Ils sont dotés de connaissances en apprentissage automatique et machine learning, permettant de créer des modèles intelligents qui peuvent aider à résoudre des problèmes complexes et anticiper les tendances futures.
+
+3. **Conception de Solutions Avancées** : Les diplômés sont capables de concevoir des solutions innovantes basées sur ces technologies, facilitant ainsi la prise de décision et l'amélioration continue des processus opérationnels.
+
+4. **Transformation Numérique** : Grâce à leurs compétences en intelligence artificielle et big data, ils peuvent jouer un rôle clé dans la mise en œuvre de stratégies digitales, favorisant la croissance et l'efficacité opérationnelle des entreprises.","HIT_AT_5__MAX_NEW_TOKENS","yes","yes_but_complete","correct","complete","grounded","direct","none","La réponse mentionne explicitement la transformation numérique des entreprises et organisations ainsi que les contributions liées à l'analyse de données, à l'IA et aux solutions avancées. L'information essentielle attendue est donc déjà couverte avant la limite."
+"Q135","formation","medium","Quelles m?thodes p?dagogiques sont utilis?es dans la Licence Sciences de gestion pour d?velopper une vision globale de l?entreprise ?","Des enseignements th?oriques, des ?tudes de cas, des travaux de groupe et des projets pratiques.","ESTM_028_C001","ESTM_028_C001; ESTM_001_C001; ESTM_006_C001; ESTM_026_C001; ESTM_020_C001","1","1","1","1,0","101","256","False","eos","True","Selon le contexte documentaire fourni, les méthodes pédagogiques utilisées dans la Licence Sciences de gestion pour développer une vision globale de l'entreprise comprennent :
+
+1. Des enseignements théoriques
+
+2. Des études de cas
+
+3. Des travaux de groupe
+
+4. Des projets pratiques
+
+Les étudiants développent une vision globale de l'entreprise grâce à ces différents types d'apprentissages.","HIT_AT_5__EOS","yes","","","","","","",""
+"Q136","formation","medium","Quel contexte technologique et de s?curit? est mis en avant dans la pr?sentation du Master G?nie Logiciel et Administration R?seau ?","Le cloud computing, la virtualisation, la mobilit? et la multiplication des cybermenaces sont pr?sent?s comme des ?l?ments marquants de l?environnement professionnel de la formation.","ESTM_002_C001","ESTM_002_C001; ESTM_020_C001; ESTM_005_C001; ESTM_004_C001; ESTM_024_C001","1","1","1","1,0","160","256","False","eos","True","Le contexte technologique et de sécurité mentionné dans la présentation du Master Génie Logiciel et Administration Réseau inclut :
+
+1. Développement de systèmes logiciels
+2. Programmation web et mobile
+3. Gestion de bases de données
+4. Architecture logicielle
+5. Administration des systèmes et réseaux
+6. Virtualisation
+7. Supervision des systèmes réseau
+8. Cybersecurité des réseaux et applications
+9. Administration et supervision des services réseau
+
+La présente formation se concentre sur les aspects techniques et opérationnels liés à l'infrastructure informatique, y compris la mise en œuvre de systèmes de sécurité moderne pour protéger ces infrastructures.","HIT_AT_5__EOS","yes","","","","","","",""

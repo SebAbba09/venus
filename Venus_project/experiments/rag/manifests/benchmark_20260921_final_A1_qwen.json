@@ -1,0 +1,36 @@
+{
+  "benchmark": {
+    "path": "D:\\Venus_M2\\Venus_project\\experiments\\embeddings\\queries\\benchmark_final.jsonl",
+    "sha256": "34558615580fe94d56b29dc8abf0714f43c1e1a5e9cff2d83eb53d3d7460abe2"
+  },
+  "corpus": {
+    "path": "D:\\Venus_M2\\Venus_project\\experiments\\embeddings\\corpus\\chunks.jsonl",
+    "sha256": "772600a47438756051c82272277a094fab00573b0504bcef92f53286b45e6164"
+  },
+  "created_at": "2026-09-22T03:05:53.229756+00:00",
+  "device": "cpu",
+  "embedding_model": "Qwen/Qwen3-Embedding-0.6B",
+  "generation_parameters": {
+    "do_sample": false,
+    "max_new_tokens": 256,
+    "temperature": 0.0
+  },
+  "generator_backend": "transformers",
+  "generator_dtype": "float16",
+  "generator_model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "git_commit": "2c5b172b16af1b247281ddca0e908f41396e7356",
+  "k": 5,
+  "platform": "Windows-11-10.0.26200-SP0",
+  "prompt": {
+    "path": "D:\\Venus_M2\\Venus_project\\experiments\\rag\\prompts\\rag_prompt.txt",
+    "sha256": "354c68122e18b462637f3789f9e8d94d446fd8bc33047f03be393428333af9fd"
+  },
+  "python_version": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+  "retrieval": {
+    "path": "D:\\Venus_M2\\Venus_project\\experiments\\embeddings\\results\\qwen3_embedding_0_6b\\retrieval.jsonl",
+    "sha256": "f2beeaa3884de4463667148825fea436b47c5fb521fd443e487fe4ff07cfd08f"
+  },
+  "run_id": "benchmark_20260921_final_A1",
+  "torch_version": "2.10.0",
+  "transformers_version": "4.57.3"
+}
