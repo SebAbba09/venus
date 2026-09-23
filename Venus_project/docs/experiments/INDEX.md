@@ -8,7 +8,7 @@
 | 2026-09-19 | Runtime embeddings | Terminé | Benchmark coût/performance CPU : GTE 3-4× plus rapide que Qwen (encodage, chargement), peak RSS plus bas (2.4 vs 3.3 Go), disque 1.9× plus petit. Retrieval produit scalaire négligeable (~4 μs). |
 | 2026-09-19 | Décision embeddings | DECIDED | Qwen3-Embedding-0.6B retenu comme modèle de référence RAG ; GTE conservé comme baseline/alternative orientée ressources. |
 | 2026-09-19 | Protocole RAG end-to-end | PROTOCOL | Protocole gelé pour comparer Qwen et GTE à génération identique sur 132 questions, K=5, avec évaluation humaine aveugle et baseline sans RAG. |
-| 2026-09-23 | A1 — Annotation qualitative de la génération | Terminé / gelé | Annotation qualitative des 132 questions ; analyse des 13 Miss@5 et des 21 générations atteignant `max_new_tokens=256`. 21/132 (15,9 %) atteignent la limite, mais 5/132 (3,8 %) présentent un effet négatif observable associé à cette limite ; dans 4 cas, la troncature constitue la cause principale retenue. Parmi ces 21 cas, 20/21 ont Hit@5 = 1. |
+| 2026-09-23 | A1 — Annotation qualitative de la génération | Terminé / gelé | Annotation qualitative ciblée et complète de **33 cas uniques** parmi les 132 questions du benchmark : les 13 Miss@5 et les 21 générations atteignant `max_new_tokens=256`, avec Q122 comme cas commun. Le benchmark et ses 132 lignes sont complets ; l'annotation qualitative porte uniquement sur cette population ciblée. 21/132 (15,9 %) atteignent 256 tokens, mais 5/132 (3,8 %) présentent un effet négatif observable associé à cette limite ; dans 4 cas, la troncature constitue la cause principale retenue. Parmi ces 21 cas, 20/21 ont Hit@5 = 1. Voir `2026-09-23_A1_generation_analysis.md`. |
 
 ## Comptes rendus
 

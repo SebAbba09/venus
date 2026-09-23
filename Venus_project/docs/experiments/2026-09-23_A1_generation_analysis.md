@@ -25,14 +25,15 @@ Cette distinction évite de confondre un événement technique de génération a
 
 ## 2. État de l'annotation
 
-L'annotation qualitative A1 est considérée comme **terminée et stabilisée**.
+L'annotation qualitative ciblée A1 est considérée comme **terminée et stabilisée**.
 
 État au moment du gel :
 
-- **132/132** lignes du CSV sont complètes ;
+- **132/132** lignes du CSV sont présentes et structurellement complètes ;
+- **33 cas uniques** ont reçu l'annotation qualitative ciblée : les **13 Miss@5** et les **21 générations atteignant `max_new_tokens=256`**, avec **Q122** comme cas commun ;
 - les **13 Miss@5** ont été examinés individuellement ;
 - les **21 générations atteignant `max_new_tokens=256`** ont été examinées individuellement ;
-- la grille de lecture a été appliquée de manière homogène ;
+- la grille d'annotation a été appliquée de manière homogène sur ces 33 cas ;
 - les résultats sont suffisamment stabilisés pour servir de base aux analyses ultérieures et à la rédaction du mémoire.
 
 ---
